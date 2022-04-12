@@ -1,0 +1,19 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "react-native/react-native": true
+    },
+    "plugins": ["react", "react-native"],
+    "extends": ["airbnb"],
+    "rules": {
+        "object-curly-spacing": ["error", "never"],
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4]
+    }
+}
