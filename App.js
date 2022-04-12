@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <SafeAreaView>
-       <Text>123</Text>
+       <Text>12444443</Text>
     </SafeAreaView>
   );
 };
