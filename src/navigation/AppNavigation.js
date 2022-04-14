@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import Profile from '../screens/Profile/Profile';
-import {RouteNames} from './navigationRoutes';
+import {RouteNames, navigationRef} from './navigationUtils';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,7 @@ function AppNavigation() {
     );
 
     return (
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
             <Stack.Navigator>
                 {screens.map((screen) => renderScreen(screen))}
             </Stack.Navigator>
