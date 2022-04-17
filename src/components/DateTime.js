@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
+import moment from 'moment';
 
 function DateTime() {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -17,11 +18,7 @@ function DateTime() {
     return (
         <View>
             <Text>
-                {currentDate.getHours()}
-                :
-                {currentDate.getMinutes()}
-                :
-                {currentDate.getSeconds()}
+                {moment(currentDate).format('DD MM YYYY HH:mm:ss ')}
             </Text>
         </View>
     );
