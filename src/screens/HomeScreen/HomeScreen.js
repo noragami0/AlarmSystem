@@ -1,22 +1,16 @@
-import React, {useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import React from 'react';
+import {View, Button} from 'react-native';
+import {NavigationUtils, RouteNames} from '../../navigation/navigationUtils';
+import DateTime from '../../components/DateTime';
 
 function HomeScreen() {
-    const [number, setNumber] = useState(0);
-
-    const increment = () => {
-        setNumber(number + 1);
-    };
-
-    const decrement = () => {
-        setNumber(number - 1);
-    };
-
     return (
         <View>
-            <Text>{number}</Text>
-            <Button onPress={increment} title="Increment" />
-            <Button onPress={decrement} title="Decrement" />
+            <DateTime />
+            <Button
+                title="back"
+                onPress={() => NavigationUtils.navigate(RouteNames.PROFILE)}
+            />
         </View>
     );
 }
