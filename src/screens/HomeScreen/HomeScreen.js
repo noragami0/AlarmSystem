@@ -1,13 +1,28 @@
-import React from 'react';
-import {Button} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, Button} from 'react-native';
 import {NavigationUtils, RouteNames} from '../../navigation/navigationUtils';
 
 function HomeScreen() {
+    const [currentDate, setCurrentDate] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentDate(new Date());
+        }, 1000);
+
+        return () => {
+            clearInterval(timer);
+        };
+    });
+
     return (
-        <Button
-            title="back"
-            onPress={() => NavigationUtils.navigate(RouteNames.PROFILE)}
-        />
+        <View>
+            <Text>{currentDate.getSeconds()}</Text>
+            <Button
+                title="back"
+                onPress={() => NavigationUtils.navigate(RouteNames.PROFILE)}
+            />
+        </View>
     );
 }
 
