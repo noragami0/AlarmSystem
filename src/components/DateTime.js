@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import moment from 'moment';
 
 function DateTime() {
@@ -17,11 +17,19 @@ function DateTime() {
 
     return (
         <View>
-            <Text>
+            <Text style={styles.clock}>
                 {moment(currentDate).format('DD MM YYYY HH:mm:ss ')}
             </Text>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    clock: {
+        color: 'red',
+        marginVertical: 10,
+        marginHorizontal: 10,
+    },
+});
 
 export default DateTime;
