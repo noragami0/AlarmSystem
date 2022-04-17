@@ -17,7 +17,13 @@ function HomeScreen() {
 
     return (
         <View>
-            <Text>{currentDate.getSeconds()}</Text>
+            <Text>
+                {currentDate.getHours()}
+                :
+                {currentDate.getMinutes()}
+                :
+                {currentDate.getSeconds()}
+            </Text>
             <Button
                 title="back"
                 onPress={() => NavigationUtils.navigate(RouteNames.PROFILE)}
