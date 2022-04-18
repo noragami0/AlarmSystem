@@ -1,9 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {CheckerUtils} from '../../../utils/checker';
 
 function ComponentPaletteItem({
     name, paddingHorizontal, paddingVertical, children,
 }) {
+    if (CheckerUtils.isNullOrUndefined(paddingHorizontal)) {
+        paddingHorizontal = 15;
+    }
+
+    if (CheckerUtils.isNullOrUndefined(paddingVertical)) {
+        paddingVertical = 15;
+    }
+
     return (
         <View>
             <View style={styles.textContainer}>
