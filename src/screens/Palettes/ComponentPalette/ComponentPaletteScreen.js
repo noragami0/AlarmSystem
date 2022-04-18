@@ -1,9 +1,15 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {ScrollView} from 'react-native';
+import ComponentPaletteItem from './ComponentPaletteItem';
+import DateTime from '../../../components/DateTime';
 
 function ComponentPaletteScreen() {
     return (
-        <Text>asdasd</Text>
+        <ScrollView>
+            <ComponentPaletteItem name="DateTime Component">
+                <DateTime />
+            </ComponentPaletteItem>
+        </ScrollView>
     );
 }
 
