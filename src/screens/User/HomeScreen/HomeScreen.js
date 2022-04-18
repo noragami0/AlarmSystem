@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Button} from 'react-native';
 import DateTime from '../../../components/DateTime';
 import {NavigationUtils, RouteNames} from '../../../navigation/navigationUtils';
-
+// TODO: remove this screen from every where, if no need, after design
 function HomeScreen() {
     return (
         <View>

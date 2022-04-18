@@ -5,6 +5,7 @@ import HomeScreen from '../screens/User/HomeScreen/HomeScreen';
 import ProfileScreen from '../screens/User/ProfileScreen/ProfileScreen';
 import {RouteNames, navigationRef} from './navigationUtils';
 import {DEFAULT_SCREEN} from '../utils/constants';
+import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/ComponentPaletteScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,11 @@ const screens = [
         name: RouteNames.PROFILE,
         component: ProfileScreen,
         options: {title: 'Profile'},
+    },
+    {
+        name: RouteNames.COMPONENT_PALETTE,
+        component: ComponentPaletteScreen,
+        options: {title: 'Component Palette'},
     },
 ];
 
