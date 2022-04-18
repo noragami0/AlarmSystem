@@ -33,6 +33,6 @@ export class AppButtonModel {
     }
 
     static mock() {
-        return this.createRaised(MockData.TITLE);
+        return this.createStroked(MockData.TITLE);
     }
 }

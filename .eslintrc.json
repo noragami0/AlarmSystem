@@ -23,6 +23,7 @@
         "no-plusplus": "off",
         "no-console": "off",
         "react/prop-types": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "react/no-array-index-key": "off"
     }
 }
