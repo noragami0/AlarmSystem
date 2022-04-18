@@ -3,7 +3,7 @@ import {
     ScrollView, Alert, StyleSheet, View,
 } from 'react-native';
 import ComponentPaletteItem from './ComponentPaletteItem';
-import DateTime from '../../../components/DateTime';
+import DateTime from '../../../components/DateTime/DateTime';
 import AppButton from '../../../components/AppButton/AppButton';
 import {AppButtonModel} from '../../../components/AppButton/AppButtonModel';
 
