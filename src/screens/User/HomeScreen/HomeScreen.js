@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Button} from 'react-native';
-import {NavigationUtils, RouteNames} from '../../navigation/navigationUtils';
-import DateTime from '../../components/DateTime';
+import DateTime from '../../../components/DateTime';
+import {NavigationUtils, RouteNames} from '../../../navigation/navigationUtils';
 
 function HomeScreen() {
     return (

@@ -1,9 +1,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import Profile from '../screens/Profile/Profile';
+import HomeScreen from '../screens/User/HomeScreen/HomeScreen';
+import ProfileScreen from '../screens/User/ProfileScreen/ProfileScreen';
 import {RouteNames, navigationRef} from './navigationUtils';
+import {DEFAULT_SCREEN} from '../utils/constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +16,7 @@ const screens = [
     },
     {
         name: RouteNames.PROFILE,
-        component: Profile,
+        component: ProfileScreen,
         options: {title: 'Profile'},
     },
 ];
@@ -32,7 +33,7 @@ function AppNavigation() {
 
     return (
         <NavigationContainer ref={navigationRef}>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName={DEFAULT_SCREEN}>
                 {screens.map((screen) => renderScreen(screen))}
             </Stack.Navigator>
         </NavigationContainer>
