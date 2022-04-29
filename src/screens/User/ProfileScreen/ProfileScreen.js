@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button} from 'react-native';
-import {NavigationUtils, RouteNames} from '../../navigation/navigationUtils';
-
-function Profile() {
+import {NavigationUtils, RouteNames} from '../../../navigation/navigationUtils';
+// TODO: remove this screen from every where, if no need, after design
+function ProfileScreen() {
     return (
         <Button
             title="back"
@@ -11,4 +11,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default ProfileScreen;
