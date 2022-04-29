@@ -1,17 +1,17 @@
 export class CheckerUtils {
-    static isNullOrUndefined(value: any): boolean {
+    static isNullOrUndefined(value) {
         return value === undefined || value === null;
     }
 
-    static isNotNullOrUndefined(value: any): boolean {
+    static isNotNullOrUndefined(value) {
         return value !== undefined && value !== null;
     }
 
-    static isUndefined(value: any): boolean {
+    static isUndefined(value) {
         return value === undefined;
     }
 
-    static isNotUndefined(value: any): boolean {
+    static isNotUndefined(value) {
         return value !== undefined;
     }
 }

@@ -6,6 +6,8 @@ import ComponentPaletteItem from './ComponentPaletteItem';
 import DateTime from '../../../components/DateTime/DateTime';
 import AppButton from '../../../components/AppButton/AppButton';
 import {AppButtonModel} from '../../../components/AppButton/AppButtonModel';
+import Icon from '../../../components/Icon/Icon';
+import {IconsR} from '../../../utils/res/icons';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -28,6 +30,9 @@ function ComponentPaletteScreen() {
                         <AppButton model={model} />
                     </View>
                 ))}
+            </ComponentPaletteItem>
+            <ComponentPaletteItem name="Icon Component">
+                <Icon icon={IconsR.EXAMPLE_ICON} />
             </ComponentPaletteItem>
         </ScrollView>
     );
