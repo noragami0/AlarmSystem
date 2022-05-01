@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 12,
         textTransform: 'uppercase',
+        fontFamily: 'MontserratAlternates-Medium',
     },
     [`text${ButtonMode.STROKED}`]: {
         color: '#007FEB',
