@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     text: {
         textTransform: 'uppercase',
-        ...AppFont(12, 600, true),
+        ...AppFont(12, 800, true),
     },
     [`text${ButtonMode.STROKED}`]: {
         color: '#007FEB',
