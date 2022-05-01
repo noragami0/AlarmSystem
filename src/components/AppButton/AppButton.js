@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {AppButtonModel, ButtonMode} from './AppButtonModel';
+import {AppFont} from '../../utils/res/fonts';
 
 function AppButton({model}) {
     if (!model) {
@@ -36,8 +37,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
     },
     text: {
-        fontSize: 12,
         textTransform: 'uppercase',
+        ...AppFont(12, 800, true),
     },
     [`text${ButtonMode.STROKED}`]: {
         color: '#007FEB',
