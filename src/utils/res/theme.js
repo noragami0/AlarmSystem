@@ -1,3 +1,6 @@
 export const ColorR = {
-    WHITE: 'rgb(255, 255, 255, 1)',
+    WHITE: 'rgba(255, 255, 255, 1)',
+    GREY: '#C9D8E3',
+    BLUE: '#2E88CC',
+
 };
