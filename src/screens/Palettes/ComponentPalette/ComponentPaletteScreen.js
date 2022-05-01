@@ -8,6 +8,7 @@ import AppButton from '../../../components/AppButton/AppButton';
 import {AppButtonModel} from '../../../components/AppButton/AppButtonModel';
 import Icon from '../../../components/Icon/Icon';
 import {IconsR} from '../../../utils/res/icons';
+import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -17,6 +18,7 @@ function ComponentPaletteScreen() {
         AppButtonModel.createRaised('RAISED BUTTON', {
             onClick: () => Alert.alert('Click Raised'),
         }),
+
     ];
 
     return (
@@ -33,6 +35,13 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
             <ComponentPaletteItem name="Icon Component">
                 <Icon icon={IconsR.EXAMPLE_ICON} />
+            </ComponentPaletteItem>
+            <ComponentPaletteItem name="NavPanelButtons Component">
+                {buttonModels.map((model, index) => (
+                    <View key={index} style={styles.marginBlock}>
+                        <NavPanelButtons model={model} />
+                    </View>
+                ))}
             </ComponentPaletteItem>
         </ScrollView>
     );
