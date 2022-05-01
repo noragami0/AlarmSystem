@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     ScrollView, Alert, StyleSheet, View,
 } from 'react-native';
@@ -8,8 +8,16 @@ import AppButton from '../../../components/AppButton/AppButton';
 import {AppButtonModel} from '../../../components/AppButton/AppButtonModel';
 import Icon from '../../../components/Icon/Icon';
 import {IconsR} from '../../../utils/res/icons';
+import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
+import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 
 function ComponentPaletteScreen() {
+    const [selectedIcon, setSelectedIcon] = useState(undefined);
+
+    const navPanel = NavPanelButtonsModel.create(
+        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
+        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
+    );
     const buttonModels = [
         AppButtonModel.createStroked('STROKED BUTTON', {
             onClick: () => Alert.alert('Click Stroked'),
@@ -17,6 +25,7 @@ function ComponentPaletteScreen() {
         AppButtonModel.createRaised('RAISED BUTTON', {
             onClick: () => Alert.alert('Click Raised'),
         }),
+
     ];
 
     return (
@@ -32,7 +41,10 @@ function ComponentPaletteScreen() {
                 ))}
             </ComponentPaletteItem>
             <ComponentPaletteItem name="Icon Component">
-                <Icon icon={IconsR.EXAMPLE_ICON} />
+                <Icon icon={IconsR.HOME_ICON} />
+            </ComponentPaletteItem>
+            <ComponentPaletteItem name="NavPanelButtons Component">
+                <NavPanelButtons model={navPanel} />
             </ComponentPaletteItem>
         </ScrollView>
     );
