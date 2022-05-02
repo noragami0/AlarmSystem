@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {
-    ScrollView, Alert, StyleSheet, View,
+    ScrollView, Alert, StyleSheet, View, Share,
 } from 'react-native';
 import ComponentPaletteItem from './ComponentPaletteItem';
 import DateTime from '../../../components/DateTime/DateTime';
@@ -12,17 +12,9 @@ import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
+import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 
 function ComponentPaletteScreen() {
-    const [selectedIcon, setSelectedIcon] = useState(undefined);
-    const navPanel = NavPanelButtonsModel.create(
-        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
-        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
-    );
-    const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
-
-    const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
-
     const buttonModels = [
         AppButtonModel.createStroked('STROKED BUTTON', {
             onClick: () => Alert.alert('Click Stroked'),
@@ -32,6 +24,35 @@ function ComponentPaletteScreen() {
         }),
 
     ];
+
+    const [selectedIcon, setSelectedIcon] = useState(undefined);
+    const navPanel = NavPanelButtonsModel.create(
+        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
+        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
+    );
+
+    const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
+    const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
+
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    'React Native | A framework for building native apps using React',
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            Alert.alert(error.message);
+        }
+    };
 
     return (
         <ScrollView>
@@ -61,6 +82,10 @@ function ComponentPaletteScreen() {
                     onChange={onChangeToggleButton}
                     text={MockData.VIBRATE}
                 />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem>
+                <ButtonWithArrow text={MockData.SHARE} onClick={onShare} />
             </ComponentPaletteItem>
         </ScrollView>
     );
