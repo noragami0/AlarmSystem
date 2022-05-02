@@ -84,7 +84,7 @@ function ComponentPaletteScreen() {
                 />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem>
+            <ComponentPaletteItem name="ButtonWithArrow Component">
                 <ButtonWithArrow text={MockData.SHARE} onClick={onShare} />
             </ComponentPaletteItem>
         </ScrollView>
