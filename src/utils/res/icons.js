@@ -3,6 +3,7 @@ import List from '../../assets/icons/list.svg';
 import Home from '../../assets/icons/home.svg';
 import Setting from '../../assets/icons/setting.svg';
 import Info from '../../assets/icons/info.svg';
+import Arrow from '../../assets/icons/arrow.svg';
 
 export const IconsR = {
     PIN_ICON: 'PIN_ICON',
@@ -10,6 +11,7 @@ export const IconsR = {
     HOME_ICON: 'HOME_ICON',
     SETTING_ICON: 'SETTING_ICON',
     INFO_ICON: 'INFO_ICON',
+    ARROW_ICON: 'ARROW_ICON',
 };
 
 export const IconsComponents = {
@@ -18,4 +20,5 @@ export const IconsComponents = {
     [IconsR.HOME_ICON]: Home,
     [IconsR.SETTING_ICON]: Setting,
     [IconsR.INFO_ICON]: Info,
+    [IconsR.ARROW_ICON]: Arrow,
 };

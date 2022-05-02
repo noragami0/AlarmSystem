@@ -12,17 +12,9 @@ import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
+import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 
 function ComponentPaletteScreen() {
-    const [selectedIcon, setSelectedIcon] = useState(undefined);
-    const navPanel = NavPanelButtonsModel.create(
-        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
-        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
-    );
-    const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
-
-    const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
-
     const buttonModels = [
         AppButtonModel.createStroked('STROKED BUTTON', {
             onClick: () => Alert.alert('Click Stroked'),
@@ -32,6 +24,15 @@ function ComponentPaletteScreen() {
         }),
 
     ];
+
+    const [selectedIcon, setSelectedIcon] = useState(undefined);
+    const navPanel = NavPanelButtonsModel.create(
+        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
+        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
+    );
+
+    const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
+    const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
 
     return (
         <ScrollView>
@@ -61,6 +62,10 @@ function ComponentPaletteScreen() {
                     onChange={onChangeToggleButton}
                     text={MockData.VIBRATE}
                 />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="ButtonWithArrow Component">
+                <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
             </ComponentPaletteItem>
         </ScrollView>
     );
