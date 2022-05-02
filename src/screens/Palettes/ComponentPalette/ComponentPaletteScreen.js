@@ -15,12 +15,12 @@ import {MockData} from '../../../utils/mockData';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
-
     const navPanel = NavPanelButtonsModel.create(
         [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
         {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
     );
     const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
+
     const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
 
     const buttonModels = [
@@ -38,6 +38,7 @@ function ComponentPaletteScreen() {
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
+
             <ComponentPaletteItem name="AppButton Component">
                 {buttonModels.map((model, index) => (
                     <View key={index} style={styles.marginBlock}>
@@ -45,12 +46,15 @@ function ComponentPaletteScreen() {
                     </View>
                 ))}
             </ComponentPaletteItem>
+
             <ComponentPaletteItem name="Icon Component">
                 <Icon icon={IconsR.HOME_ICON} />
             </ComponentPaletteItem>
+
             <ComponentPaletteItem name="NavPanelButtons Component">
                 <NavPanelButtons model={navPanel} />
             </ComponentPaletteItem>
+
             <ComponentPaletteItem name="Vibration Toggle Button">
                 <ToggleButton
                     isEnabled={isEnabledToggleButton}
