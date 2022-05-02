@@ -55,7 +55,7 @@ function ComponentPaletteScreen() {
                 <NavPanelButtons model={navPanel} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="Vibration Toggle Button">
+            <ComponentPaletteItem name="ToggleButton Component">
                 <ToggleButton
                     isEnabled={isEnabledToggleButton}
                     onChange={onChangeToggleButton}
