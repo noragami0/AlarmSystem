@@ -1,24 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     Switch, Text, View, StyleSheet,
 } from 'react-native';
 import {ColorR} from '../../utils/res/theme';
 import {AppFont} from '../../utils/res/fonts';
-import {MockData} from '../../utils/mockData';
 
-export default function ToggleButton() {
-    const [isEnabled, setIsEnabled] = useState(false);
-
-    const onValueChange = () => {
-        setIsEnabled((previousState) => !previousState);
-    };
+export default function ToggleButton({isEnabled, onChange, text}) {
     return (
         <View style={styles.wrapper}>
-            <Text style={AppFont(15, 600)}>{MockData.VIBRATE}</Text>
+            <Text style={AppFont(15, 600)}>{text}</Text>
             <Switch
                 trackColor={{false: ColorR.GREY, true: ColorR.BLUE}}
                 thumbColor={ColorR.WHITE}
-                onChange={onValueChange}
+                onValueChange={onChange}
                 value={isEnabled}
             />
         </View>
@@ -37,8 +31,7 @@ const styles = StyleSheet.create({
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.85,
+        shadowRadius: 5,
         elevation: 5,
     },
 });

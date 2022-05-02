@@ -11,6 +11,7 @@ import {IconsR} from '../../../utils/res/icons';
 import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
+import {MockData} from '../../../utils/mockData';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -19,6 +20,9 @@ function ComponentPaletteScreen() {
         [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
         {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
     );
+    const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
+    const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
+
     const buttonModels = [
         AppButtonModel.createStroked('STROKED BUTTON', {
             onClick: () => Alert.alert('Click Stroked'),
@@ -48,7 +52,11 @@ function ComponentPaletteScreen() {
                 <NavPanelButtons model={navPanel} />
             </ComponentPaletteItem>
             <ComponentPaletteItem name="Vibration Toggle Button">
-                <ToggleButton />
+                <ToggleButton
+                    isEnabled={isEnabledToggleButton}
+                    onChange={onChangeToggleButton}
+                    text={MockData.VIBRATE}
+                />
             </ComponentPaletteItem>
         </ScrollView>
     );
