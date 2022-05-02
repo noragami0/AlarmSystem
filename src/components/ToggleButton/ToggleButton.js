@@ -4,21 +4,22 @@ import {
 } from 'react-native';
 import {ColorR} from '../../utils/res/theme';
 import {AppFont} from '../../utils/res/fonts';
+import {MockData} from '../../utils/mockData';
 
 export default function ToggleButton() {
-    const [vibration, setVibration] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(false);
 
-    const toggleVibration = () => {
-        setVibration((previousState) => !previousState);
+    const onValueChange = () => {
+        setIsEnabled((previousState) => !previousState);
     };
     return (
         <View style={styles.wrapper}>
-            <Text style={styles.text}>Вібросигнал</Text>
+            <Text style={AppFont(15, 600)}>{MockData.VIBRATE}</Text>
             <Switch
                 trackColor={{false: ColorR.GREY, true: ColorR.BLUE}}
                 thumbColor={ColorR.WHITE}
-                onValueChange={toggleVibration}
-                value={vibration}
+                onChange={onValueChange}
+                value={isEnabled}
             />
         </View>
     );
@@ -31,9 +32,13 @@ const styles = StyleSheet.create({
         backgroundColor: ColorR.WHITE,
         padding: 17,
         borderRadius: 10,
-    },
-    text: {
-        ...AppFont(15, 600),
-        lineHeight: 20,
+        shadowColor: ColorR.BLACK,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.85,
+        elevation: 5,
     },
 });
