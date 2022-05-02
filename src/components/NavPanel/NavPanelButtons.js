@@ -12,7 +12,6 @@ function NavPanelButtons({model}) {
     const onClick = (tag) => {
         if (model.optional.onClick) {
             model.optional.onClick(tag);
-            console.log(tag);
         }
     };
 
