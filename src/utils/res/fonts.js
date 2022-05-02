@@ -7,6 +7,7 @@ export function AppFont(size, weight, isItalic = false) {
             ios: {
                 fontWeight: weight.toString(),
                 fontStyle: isItalic ? 'italic' : 'normal',
+                fontFamily: 'Montserrat Alternates',
             },
             android: {
                 fontFamily: androidFontFamilyToWeight(weight, isItalic),
