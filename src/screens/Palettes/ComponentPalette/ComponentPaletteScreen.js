@@ -10,6 +10,7 @@ import Icon from '../../../components/Icon/Icon';
 import {IconsR} from '../../../utils/res/icons';
 import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
+import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -45,6 +46,9 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
             <ComponentPaletteItem name="NavPanelButtons Component">
                 <NavPanelButtons model={navPanel} />
+            </ComponentPaletteItem>
+            <ComponentPaletteItem name="Vibration Toggle Button">
+                <ToggleButton />
             </ComponentPaletteItem>
         </ScrollView>
     );
