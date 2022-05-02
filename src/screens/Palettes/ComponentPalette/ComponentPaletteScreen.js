@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {
-    ScrollView, Alert, StyleSheet, View, Share,
+    ScrollView, Alert, StyleSheet, View,
 } from 'react-native';
 import ComponentPaletteItem from './ComponentPaletteItem';
 import DateTime from '../../../components/DateTime/DateTime';
@@ -34,26 +34,6 @@ function ComponentPaletteScreen() {
     const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
     const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
 
-    const onShare = async () => {
-        try {
-            const result = await Share.share({
-                message:
-                    'React Native | A framework for building native apps using React',
-            });
-            if (result.action === Share.sharedAction) {
-                if (result.activityType) {
-                    // shared with activity type of result.activityType
-                } else {
-                    // shared
-                }
-            } else if (result.action === Share.dismissedAction) {
-                // dismissed
-            }
-        } catch (error) {
-            Alert.alert(error.message);
-        }
-    };
-
     return (
         <ScrollView>
             <ComponentPaletteItem name="DateTime Component">
@@ -85,7 +65,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ButtonWithArrow Component">
-                <ButtonWithArrow text={MockData.SHARE} onClick={onShare} />
+                <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
             </ComponentPaletteItem>
         </ScrollView>
     );
