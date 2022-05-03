@@ -71,11 +71,11 @@ function ComponentPaletteScreen() {
                 <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="Support Email Button">
+            <ComponentPaletteItem name="SupportEmailButton Component">
                 <SupportEmailButton selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="App Link Button">
+            <ComponentPaletteItem name="AppLink Component">
                 <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
             </ComponentPaletteItem>
         </ScrollView>
