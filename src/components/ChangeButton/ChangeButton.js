@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     wrapper: {
         alignItems: 'center',
         padding: 17,
-
     },
     button: {
         flexDirection: 'row',
