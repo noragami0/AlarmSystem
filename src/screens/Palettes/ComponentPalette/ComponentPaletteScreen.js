@@ -15,6 +15,7 @@ import {MockData} from '../../../utils/mockData';
 import SupportEmailButton from '../../../components/SupportEmailButton/SupportEmailButton';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
+import AppLink from '../../../components/AppLink/AppLink';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -72,6 +73,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="Support Email Button">
                 <SupportEmailButton selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="App Link Button">
+                <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
             </ComponentPaletteItem>
         </ScrollView>
     );
