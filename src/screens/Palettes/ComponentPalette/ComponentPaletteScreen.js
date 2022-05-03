@@ -12,6 +12,7 @@ import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
+import SupportEmailButton from '../../../components/SupportEmailButton/SupportEmailButton';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 
 function ComponentPaletteScreen() {
@@ -66,6 +67,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="ButtonWithArrow Component">
                 <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="Support Email Button">
+                <SupportEmailButton text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
             </ComponentPaletteItem>
         </ScrollView>
     );

@@ -8,7 +8,7 @@ import {AppFont} from '../../utils/res/fonts';
 export default function ToggleButton({isEnabled, onChange, text}) {
     return (
         <View style={styles.wrapper}>
-            <Text style={AppFont(15, 600)}>{text}</Text>
+            <Text style={styles.text}>{text}</Text>
             <Switch
                 trackColor={{false: ColorR.GREY, true: ColorR.BLUE}}
                 thumbColor={ColorR.WHITE}
@@ -33,5 +33,9 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 5,
         elevation: 5,
+    },
+    text: {
+        ...AppFont(15, 600),
+        color: ColorR.BLACK,
     },
 });

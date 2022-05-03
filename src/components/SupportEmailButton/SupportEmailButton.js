@@ -3,16 +3,16 @@ import {
     Text, TouchableOpacity, View, StyleSheet,
 } from 'react-native';
 import Icon from '../Icon/Icon';
-import {IconsR} from '../../utils/res/icons';
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
+import {IconsR} from '../../utils/res/icons';
 
-export default function ButtonWithArrow({onClick, text}) {
+export default function SupportEmailButton({text, onClick}) {
     return (
         <View style={styles.wrapper}>
             <TouchableOpacity onPress={onClick} style={styles.button}>
                 <Text style={styles.text}>{text}</Text>
-                <Icon icon={IconsR.ARROW_ICON} color={ColorR.BLACK} />
+                <Icon icon={IconsR.EMAIL_ICON} color={ColorR.GREY} />
             </TouchableOpacity>
         </View>
     );
@@ -40,4 +40,5 @@ const styles = StyleSheet.create({
         ...AppFont(15, 600),
         color: ColorR.BLACK,
     },
+
 });
