@@ -1,6 +1,6 @@
 import {Platform} from 'react-native';
 
-export function AppFont(size, weight, isItalic = false) {
+export function AppFont(size, weight, textcolor, isItalic = false) {
     return {
         fontSize: size,
         ...Platform.select({
@@ -13,6 +13,7 @@ export function AppFont(size, weight, isItalic = false) {
                 fontFamily: androidFontFamilyToWeight(weight, isItalic),
             },
         }),
+        color: textcolor,
     };
 }
 
