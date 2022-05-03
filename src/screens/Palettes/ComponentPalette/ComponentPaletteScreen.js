@@ -16,6 +16,7 @@ import SupportEmailButton from '../../../components/SupportEmailButton/SupportEm
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
+import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -77,6 +78,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AppLink Component">
                 <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AttentionIcon Component">
+                <AttentionIcon />
             </ComponentPaletteItem>
         </ScrollView>
     );
