@@ -13,6 +13,7 @@ import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtons
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
+import ChangeButton from '../../../components/ChangeButton/ChangeButton';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -66,6 +67,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="ButtonWithArrow Component">
                 <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="ChangeButton Component">
+                <ChangeButton text={MockData.CHANGE} onClick={() => Alert.alert('Click on change button')} />
             </ComponentPaletteItem>
         </ScrollView>
     );
