@@ -14,6 +14,7 @@ import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
 import SupportEmailButton from '../../../components/SupportEmailButton/SupportEmailButton';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
+import {ColorR} from '../../../utils/res/theme';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -70,7 +71,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="Support Email Button">
-                <SupportEmailButton text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
+                <SupportEmailButton selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
             </ComponentPaletteItem>
         </ScrollView>
     );

@@ -1,44 +1,19 @@
 import React from 'react';
 import {
-    Text, TouchableOpacity, View, StyleSheet,
+    Text, TouchableOpacity,
 } from 'react-native';
 import Icon from '../Icon/Icon';
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
-import {IconsR} from '../../utils/res/icons';
+import GlobalStyles from '../../utils/res/globalStyles';
 
-export default function SupportEmailButton({text, onClick}) {
+export default function SupportEmailButton({
+    text, onClick, selectedIcon, iconColor,
+}) {
     return (
-        <View style={styles.wrapper}>
-            <TouchableOpacity onPress={onClick} style={styles.button}>
-                <Text style={styles.text}>{text}</Text>
-                <Icon icon={IconsR.EMAIL_ICON} color={ColorR.GREY} />
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={onClick} style={GlobalStyles.buttonComponent}>
+            <Text style={AppFont(15, 600, ColorR.BLACK)}>{text}</Text>
+            <Icon icon={selectedIcon} color={iconColor} />
+        </TouchableOpacity>
     );
 }
-
-const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: ColorR.WHITE,
-        padding: 17,
-        borderRadius: 10,
-        shadowColor: ColorR.BLACK,
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowRadius: 5,
-        elevation: 5,
-    },
-    button: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    text: {
-        ...AppFont(15, 600),
-        color: ColorR.BLACK,
-    },
-
-});

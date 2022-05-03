@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-    Switch, Text, View, StyleSheet,
+    Switch, Text, View,
 } from 'react-native';
 import {ColorR} from '../../utils/res/theme';
 import {AppFont} from '../../utils/res/fonts';
+import GlobalStyles from '../../utils/res/globalStyles';
 
 export default function ToggleButton({isEnabled, onChange, text}) {
     return (
-        <View style={styles.wrapper}>
-            <Text style={styles.text}>{text}</Text>
+        <View style={GlobalStyles.buttonComponent}>
+            <Text style={AppFont(15, 600, ColorR.BLACK)}>{text}</Text>
             <Switch
                 trackColor={{false: ColorR.GREY, true: ColorR.BLUE}}
                 thumbColor={ColorR.WHITE}
@@ -18,24 +19,3 @@ export default function ToggleButton({isEnabled, onChange, text}) {
         </View>
     );
 }
-const styles = StyleSheet.create({
-    wrapper: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: ColorR.WHITE,
-        padding: 17,
-        borderRadius: 10,
-        shadowColor: ColorR.BLACK,
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowRadius: 5,
-        elevation: 5,
-    },
-    text: {
-        ...AppFont(15, 600),
-        color: ColorR.BLACK,
-    },
-});
