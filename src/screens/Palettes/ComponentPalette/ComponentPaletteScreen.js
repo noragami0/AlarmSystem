@@ -75,7 +75,7 @@ function ComponentPaletteScreen() {
                 <SupportEmailButton selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="App Link Button">
+            <ComponentPaletteItem name="App asdasdfa Link Button">
                 <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
             </ComponentPaletteItem>
         </ScrollView>
