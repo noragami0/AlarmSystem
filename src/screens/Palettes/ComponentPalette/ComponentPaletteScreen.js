@@ -21,7 +21,6 @@ import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
 import AppButton from '../../../components/AppButton/AppButton';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
 
-
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
     const navPanel = NavPanelButtonsModel.create(
