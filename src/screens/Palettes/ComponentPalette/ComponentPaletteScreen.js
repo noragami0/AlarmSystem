@@ -40,6 +40,10 @@ function ComponentPaletteScreen() {
 
     return (
         <ScrollView>
+            <ComponentPaletteItem name="VolumeSlider Component">
+                <VolumeSlider text={MockData.TITLE} onChange={() => null} />
+            </ComponentPaletteItem>
+
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
@@ -80,9 +84,6 @@ function ComponentPaletteScreen() {
                 <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="VolumeSlider Component">
-                <VolumeSlider text={MockData.TITLE} />
-            </ComponentPaletteItem>
         </ScrollView>
     );
 }
