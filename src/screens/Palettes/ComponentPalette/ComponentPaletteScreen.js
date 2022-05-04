@@ -17,6 +17,7 @@ import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
+import {DANGER_LEVEL} from '../../../utils/constants';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -81,7 +82,8 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AttentionIcon Component">
-                <AttentionIcon selectedImage={require('../../../assets/images/yellow-attention.png')} />
+                <AttentionIcon selectedImage={DANGER_LEVEL.HIGH} />
+                <AttentionIcon selectedImage={DANGER_LEVEL.MEDIUM} />
             </ComponentPaletteItem>
         </ScrollView>
     );

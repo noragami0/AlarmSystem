@@ -5,7 +5,6 @@ import {ImageStyles} from '../../utils/res/stylesForImages';
 function AttentionIcon({selectedImage}) {
     return (
         <View style={styles.images}>
-            <Image source={selectedImage} style={ImageStyles(95, 95)} />
             <Image source={selectedImage} style={ImageStyles(315, 315)} />
         </View>
     );
