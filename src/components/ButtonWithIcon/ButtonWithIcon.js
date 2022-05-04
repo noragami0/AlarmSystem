@@ -7,7 +7,7 @@ import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
 import GlobalStyles from '../../utils/res/globalStyles';
 
-export default function SupportEmailButton({
+export default function ButtonWithIcon({
     text, onClick, selectedIcon, iconColor,
 }) {
     return (

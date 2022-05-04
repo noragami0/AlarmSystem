@@ -1,52 +1,26 @@
 import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {AppButtonModel, ButtonMode} from './AppButtonModel';
+import {
+    StyleSheet,
+    Text, TouchableOpacity,
+} from 'react-native';
+
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
+import GlobalStyles from '../../utils/res/globalStyles';
 
-function AppButton({model}) {
-    if (!model) {
-        model = AppButtonModel.mock();
-    }
-
-    const onClick = () => {
-        if (model.optional.onClick) {
-            model.optional.onClick();
-        }
-    };
-
+export default function AppButton({text, onClick}) {
     return (
-        <TouchableOpacity onPress={onClick} style={[styles.button, styles[model.mode]]}>
-            <Text style={[styles.text, styles[`text${model.mode}`]]}>{model.text}</Text>
+        <TouchableOpacity onPress={onClick} style={[GlobalStyles.buttonComponent, styles.button]}>
+            <Text style={styles.text}>{text}</Text>
         </TouchableOpacity>
     );
 }
-
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 5,
-        paddingVertical: 16,
-        justifyContent: 'center',
         alignItems: 'center',
-    },
-    [ButtonMode.RAISED]: {
-        backgroundColor: '#2699FB',
-    },
-    [ButtonMode.STROKED]: {
-        backgroundColor: ColorR.WHITE,
-        borderColor: '#007FEB',
-        borderWidth: 2,
+        justifyContent: 'center',
     },
     text: {
-        textTransform: 'uppercase',
-        ...AppFont(12, 800, true),
-    },
-    [`text${ButtonMode.STROKED}`]: {
-        color: '#007FEB',
-    },
-    [`text${ButtonMode.RAISED}`]: {
-        color: '#FFFFFF',
+        ...AppFont(16, 700, ColorR.BLACK),
     },
 });
-
-export default AppButton;
