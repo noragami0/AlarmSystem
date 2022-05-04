@@ -16,7 +16,9 @@ function AttentionIcon({dangerLevel}) {
     };
     return (
         <View style={styles.images}>
-            <Image source={getImageSrc()} style={ImageStyles(315, 315)} />
+            {dangerLevel === DANGER_LEVEL.NO_DANGER
+                ? null
+                : <Image source={getImageSrc()} style={ImageStyles(315, 315)} />}
         </View>
     );
 }
