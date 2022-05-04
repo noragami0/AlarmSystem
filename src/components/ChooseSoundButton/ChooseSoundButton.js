@@ -8,16 +8,19 @@ import {ColorR} from '../../utils/res/theme';
 import Icon from '../Icon/Icon';
 
 export default function ChooseSoundButton({buttons, onClick}) {
-    const renderData = (buttonItem, index, count) => (
-        <React.Fragment key={index}>
-            <TouchableOpacity onPress={onClick}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{buttonItem.text}</Text>
-            </TouchableOpacity>
-            {index === count - 1
-                ? null
-                : <View style={styles.line} />}
-        </React.Fragment>
-    );
+    const renderData = (buttonItem, index, count) => {
+        console.log(buttonItem, index, count);
+        return (
+            <React.Fragment key={index}>
+                <TouchableOpacity onPress={onClick}>
+                    <Text style={AppFont(15, 600, ColorR.BLACK)}>{buttonItem.text}</Text>
+                </TouchableOpacity>
+                {index === count - 1
+                    ? null
+                    : <View style={styles.line} />}
+            </React.Fragment>
+        );
+    };
     return (
 
         <View style={GlobalStyles.centerComponent}>
