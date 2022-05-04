@@ -81,7 +81,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AttentionIcon Component">
-                <AttentionIcon />
+                <AttentionIcon selectedImage={require('../../../assets/images/yellow-attention.png')} />
             </ComponentPaletteItem>
         </ScrollView>
     );

@@ -1,12 +1,20 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
+import {ImageStyles} from '../../utils/res/stylesForImages';
 
-function AttentionIcon() {
+function AttentionIcon({selectedImage}) {
     return (
-        <View>
-            <Image source={require('../../assets/images/red-attention.png')} />
+        <View style={styles.images}>
+            <Image source={selectedImage} style={ImageStyles(95, 95)} />
+            <Image source={selectedImage} style={ImageStyles(315, 315)} />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    images: {
+        alignItems: 'center',
+    },
+});
 
 export default AttentionIcon;
