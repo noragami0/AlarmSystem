@@ -16,7 +16,7 @@ import SupportEmailButton from '../../../components/SupportEmailButton/SupportEm
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
-import VolumeSlider from '../../../components/VolumeSlider/VolumeSlider';
+import AppSlider from '../../../components/AppSlider/AppSlider';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -40,10 +40,6 @@ function ComponentPaletteScreen() {
 
     return (
         <ScrollView>
-            <ComponentPaletteItem name="VolumeSlider Component">
-                <VolumeSlider text={MockData.TITLE} onChange={() => null} />
-            </ComponentPaletteItem>
-
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
@@ -84,6 +80,9 @@ function ComponentPaletteScreen() {
                 <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
             </ComponentPaletteItem>
 
+            <ComponentPaletteItem name="AppSlider Component">
+                <AppSlider text={MockData.TITLE} onChange={() => null} />
+            </ComponentPaletteItem>
         </ScrollView>
     );
 }
