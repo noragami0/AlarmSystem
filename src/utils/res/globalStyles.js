@@ -18,18 +18,4 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    centerComponent: {
-        backgroundColor: ColorR.WHITE,
-        padding: 17,
-        borderRadius: 10,
-        shadowColor: ColorR.BLACK,
-        shadowOpacity: 0.10,
-        shadowOffset: {
-            width: 10,
-            height: 5,
-        },
-        shadowRadius: 5,
-        elevation: 5,
-        alignItems: 'center',
-    },
 });
