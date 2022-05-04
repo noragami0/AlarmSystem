@@ -1,32 +1,32 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import {ImageStyles} from '../../utils/res/stylesForImages';
+import {Image, View} from 'react-native';
 import {DANGER_LEVEL} from '../../utils/constants';
 
-function AttentionIcon({dangerLevel}) {
+const images = {
+    BIG_RED: require('../../assets/images/red-attention.png'),
+    BIG_YELLOW: require('../../assets/images/yellow-attention.png'),
+    SMALL_RED: require('../../assets/images/red-attention-small.png'),
+    SMALL_YELLOW: require('../../assets/images/yellow-attention-small.png'),
+};
+
+function AttentionIcon({dangerLevel, isSmall}) {
     const getImageSrc = () => {
         switch (dangerLevel) {
             case DANGER_LEVEL.HIGH:
-                return require('../../assets/images/red-attention.png');
+                return isSmall ? images.SMALL_RED : images.BIG_RED;
             case DANGER_LEVEL.MEDIUM:
-                return require('../../assets/images/yellow-attention.png');
+                return isSmall ? images.SMALL_YELLOW : images.BIG_YELLOW;
             default:
                 return null;
         }
     };
     return (
-        <View style={styles.images}>
+        <View>
             {dangerLevel === DANGER_LEVEL.NO_DANGER
                 ? null
-                : <Image source={getImageSrc()} style={ImageStyles(95, 95)} />}
+                : <Image source={getImageSrc()} />}
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    images: {
-        alignItems: 'center',
-    },
-});
 
 export default AttentionIcon;
