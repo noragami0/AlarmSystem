@@ -12,11 +12,13 @@ import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
 import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
-import SupportEmailButton from '../../../components/SupportEmailButton/SupportEmailButton';
+import ButtonWithIcon from '../../../components/ButtonWithIcon/ButtonWithIcon';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AirRaidAlert from '../../../components/AirRaidAlert/AirRaidAlert';
+import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
+import {DANGER_LEVEL} from '../../../utils/constants';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -72,8 +74,8 @@ function ComponentPaletteScreen() {
                 <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="SupportEmailButton Component">
-                <SupportEmailButton selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
+            <ComponentPaletteItem name="ButtonWithIcon Component">
+                <ButtonWithIcon selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AppLink Component">
@@ -82,6 +84,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AirRaidAlert Component">
                 <AirRaidAlert text={MockData.TITLE} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AttentionIcon Component">
+                <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
             </ComponentPaletteItem>
         </ScrollView>
     );
