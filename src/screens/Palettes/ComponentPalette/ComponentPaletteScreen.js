@@ -34,7 +34,11 @@ function ComponentPaletteScreen() {
 
     const [selectedIcon, setSelectedIcon] = useState(undefined);
     const navPanel = NavPanelButtonsModel.create(
-        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
+        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'},
+            {icon: IconsR.LIST_ICON, tag: 'LIST'},
+            {icon: IconsR.HOME_ICON, tag: 'HOME'},
+            {icon: IconsR.SETTING_ICON, tag: 'SETTINGS'},
+            {icon: IconsR.INFO_ICON, tag: 'INFO'}],
         {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
     );
 
