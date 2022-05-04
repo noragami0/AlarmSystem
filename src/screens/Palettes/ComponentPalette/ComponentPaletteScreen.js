@@ -15,6 +15,7 @@ import ButtonWithIcon from '../../../components/ButtonWithIcon/ButtonWithIcon';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
+import AppSlider from '../../../components/AppSlider/AppSlider';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
 import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
@@ -40,7 +41,6 @@ function ComponentPaletteScreen() {
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
-
             <ComponentPaletteItem name="Icon Component">
                 <Icon icon={IconsR.HOME_ICON} />
             </ComponentPaletteItem>
@@ -92,6 +92,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AppButton Component">
                 <AppButton text={MockData.TITLE} onClick={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AppSlider Component">
+                <AppSlider text={MockData.TITLE} onChange={() => null} />
             </ComponentPaletteItem>
         </ScrollView>
     );
