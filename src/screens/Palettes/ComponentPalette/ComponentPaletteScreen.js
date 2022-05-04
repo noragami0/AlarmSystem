@@ -21,6 +21,7 @@ import {DANGER_LEVEL} from '../../../utils/constants';
 import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
 import AppButton from '../../../components/AppButton/AppButton';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
+import ButtonGroup from '../../../components/ButtonGroup/ButtonGroup';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -97,6 +98,11 @@ function ComponentPaletteScreen() {
             <ComponentPaletteItem name="AppSlider Component">
                 <AppSlider text={MockData.TITLE} onChange={() => null} />
             </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="ButtonGroup Component">
+                <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => null} />
+            </ComponentPaletteItem>
+
         </ScrollView>
     );
 }
