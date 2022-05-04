@@ -3,4 +3,5 @@ export const MockData = {
     VIBRATE: 'Вібросигнал',
     SHARE: 'Поділитись застосунком',
     EMAIL: 'support@alarmsystem.com',
+    AUDIO: 'audio2365727374.mp3',
 };
