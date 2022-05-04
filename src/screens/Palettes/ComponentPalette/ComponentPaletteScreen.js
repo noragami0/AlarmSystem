@@ -18,6 +18,7 @@ import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
+import ChooseSoundButton from '../../../components/ChooseSoundButton/ChooseSoundButton';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -83,6 +84,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AttentionIcon Component">
                 <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="ChooseSoundButton Component">
+                <ChooseSoundButton text={MockData.TITLE} onClick1={() => Alert.alert('Click to change sound1')} text2={MockData.TITLE} onClick2={() => Alert.alert('Click to change sound2')} />
             </ComponentPaletteItem>
         </ScrollView>
     );
