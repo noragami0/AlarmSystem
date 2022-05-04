@@ -19,7 +19,7 @@ import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
-import CurrentAlarms from '../../../components/CurrentAlarms/CurrentAlarms';
+import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -93,7 +93,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="CurrentAttention Component">
-                <CurrentAlarms
+                <CurrentAttention
                     dangerLevel={DANGER_LEVEL.HIGH}
                     title={MockData.TITLE}
                     dateFrom={moment(new Date()).subtract(1, 'day')}

@@ -7,7 +7,7 @@ import {ColorR} from '../../utils/res/theme';
 import {AppFont} from '../../utils/res/fonts';
 import {localize} from '../../utils/localize/localize';
 
-function CurrentAlarms({
+function CurrentAttention({
     dangerLevel, title, date, dateFrom, dateTo,
 }) {
     const duration = moment(dateFrom).diff(dateTo);
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CurrentAlarms;
+export default CurrentAttention;
