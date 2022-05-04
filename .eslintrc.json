@@ -25,6 +25,7 @@
         "react/prop-types": "off",
         "no-param-reassign": "off",
         "react/no-array-index-key": "off",
-        "global-require": "off"
+        "global-require": "off",
+        "react/jsx-boolean-value": "off"
     }
 }
