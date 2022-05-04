@@ -82,8 +82,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AttentionIcon Component">
-                <AttentionIcon selectedImage={DANGER_LEVEL.HIGH} />
-                <AttentionIcon selectedImage={DANGER_LEVEL.MEDIUM} />
+                <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
             </ComponentPaletteItem>
         </ScrollView>
     );
