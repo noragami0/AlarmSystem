@@ -5,24 +5,28 @@ import {
 import GlobalStyles from '../../utils/res/globalStyles';
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
+import Icon from '../Icon/Icon';
 
-export default function ChooseSoundButton({
-    text, text2, onClick1, onClick2,
-}) {
+export default function ChooseSoundButton({buttons, onClick}) {
+    const renderData = (buttonItem, index, count) => (
+        <React.Fragment key={index}>
+            <TouchableOpacity onPress={onClick}>
+                <Text style={AppFont(15, 600, ColorR.BLACK)}>{buttonItem.text}</Text>
+            </TouchableOpacity>
+            {index === count - 1
+                ? null
+                : <View style={styles.line} />}
+        </React.Fragment>
+    );
     return (
+
         <View style={GlobalStyles.centerComponent}>
-            <TouchableOpacity onPress={onClick1}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{text}</Text>
-            </TouchableOpacity>
-            <View style={styles.lineStyle} />
-            <TouchableOpacity onPress={onClick2}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{text2}</Text>
-            </TouchableOpacity>
+            {buttons.map((item, index, arr) => renderData(item, index, arr.length))}
         </View>
     );
 }
 const styles = StyleSheet.create({
-    lineStyle: {
+    line: {
         borderWidth: 0.5,
         width: 350,
         borderColor: ColorR.GREY,

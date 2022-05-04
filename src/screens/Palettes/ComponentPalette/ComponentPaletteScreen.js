@@ -87,8 +87,9 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ChooseSoundButton Component">
-                <ChooseSoundButton text={MockData.TITLE} onClick1={() => Alert.alert('Click to change sound1')} text2={MockData.TITLE} onClick2={() => Alert.alert('Click to change sound2')} />
+                <ChooseSoundButton buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => Alert.alert('Click to change sound')} />
             </ComponentPaletteItem>
+
         </ScrollView>
     );
 }
