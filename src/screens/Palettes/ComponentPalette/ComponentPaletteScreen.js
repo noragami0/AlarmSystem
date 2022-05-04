@@ -15,6 +15,7 @@ import ButtonWithIcon from '../../../components/ButtonWithIcon/ButtonWithIcon';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
+import AirRaidAlert from '../../../components/AirRaidAlert/AirRaidAlert';
 import AppSlider from '../../../components/AppSlider/AppSlider';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
@@ -73,6 +74,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AppLink Component">
                 <AppLink text={MockData.TITLE} onClick={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AirRaidAlert Component">
+                <AirRaidAlert text={MockData.TITLE} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AttentionIcon Component">
