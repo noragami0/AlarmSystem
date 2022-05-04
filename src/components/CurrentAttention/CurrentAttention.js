@@ -25,7 +25,7 @@ function CurrentAttention({
                         {moment.utc(date).format('DD MMMM, HH:mm')}
                     </Text>
 
-                    <Text style={ColorR.LIGHT_GRAY}>
+                    <Text style={styles.duration}>
                         {moment.utc(duration).format(`H${localize.general.hourAbbr}mm${localize.general.minutesAbbr}`)}
                     </Text>
 
@@ -57,16 +57,18 @@ const styles = StyleSheet.create({
     dateElements: {
         flexDirection: 'row',
         marginTop: 10,
-        ...AppFont(14, 600),
-
     },
     texts: {
         marginLeft: 50,
         alignItems: 'center',
     },
     date: {
+        ...AppFont(14, 600, ColorR.BLACK),
         marginRight: 5,
-        color: ColorR.BLACK,
+        textTransform: 'lowercase',
+    },
+    duration: {
+        ...AppFont(14, 600, ColorR.LIGHT_GRAY),
     },
 });
 
