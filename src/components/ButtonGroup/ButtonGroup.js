@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Text, TouchableOpacity, View, StyleSheet,
 } from 'react-native';
-import GlobalStyles from '../../utils/res/globalStyles';
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
 
@@ -19,12 +18,26 @@ export default function ButtonGroup({buttons, onClick}) {
     );
     return (
 
-        <View style={GlobalStyles.centerComponent}>
+        <View style={styles.button}>
             {buttons.map((item, index, arr) => renderData(item, index, arr.length))}
         </View>
     );
 }
 const styles = StyleSheet.create({
+    button: {
+        backgroundColor: ColorR.WHITE,
+        padding: 17,
+        borderRadius: 10,
+        shadowColor: ColorR.BLACK,
+        shadowOpacity: 0.10,
+        shadowOffset: {
+            width: 10,
+            height: 5,
+        },
+        shadowRadius: 5,
+        elevation: 5,
+        alignItems: 'center',
+    },
     line: {
         borderWidth: 0.5,
         width: 350,
