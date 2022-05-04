@@ -57,10 +57,13 @@ const styles = StyleSheet.create({
     dateElements: {
         flexDirection: 'row',
         marginTop: 10,
+        justifyContent: 'space-between',
+        width: '100%',
     },
     texts: {
-        marginLeft: 50,
+        marginLeft: 35,
         alignItems: 'center',
+        flex: 1,
     },
     date: {
         ...AppFont(14, 600, ColorR.BLACK),
