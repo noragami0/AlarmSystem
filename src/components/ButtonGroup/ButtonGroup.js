@@ -1,0 +1,34 @@
+import React from 'react';
+import {
+    Text, TouchableOpacity, View, StyleSheet,
+} from 'react-native';
+import GlobalStyles from '../../utils/res/globalStyles';
+import {AppFont} from '../../utils/res/fonts';
+import {ColorR} from '../../utils/res/theme';
+
+export default function ButtonGroup({buttons, onClick}) {
+    const renderData = (buttonItem, index, count) => (
+        <React.Fragment key={index}>
+            <TouchableOpacity onPress={() => onClick(buttonItem.tag)}>
+                <Text style={AppFont(15, 600, ColorR.BLACK)}>{buttonItem.text}</Text>
+            </TouchableOpacity>
+            {index === count - 1
+                ? null
+                : <View style={styles.line} />}
+        </React.Fragment>
+    );
+    return (
+
+        <View style={GlobalStyles.centerComponent}>
+            {buttons.map((item, index, arr) => renderData(item, index, arr.length))}
+        </View>
+    );
+}
+const styles = StyleSheet.create({
+    line: {
+        borderWidth: 0.5,
+        width: 350,
+        borderColor: ColorR.GREY,
+        margin: 10,
+    },
+});

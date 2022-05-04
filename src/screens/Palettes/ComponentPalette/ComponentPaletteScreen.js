@@ -18,7 +18,7 @@ import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
-import ChooseSoundButton from '../../../components/ChooseSoundButton/ChooseSoundButton';
+import ButtonGroup from '../../../components/ButtonGroup/ButtonGroup';
 
 function ComponentPaletteScreen() {
     const buttonModels = [
@@ -86,8 +86,8 @@ function ComponentPaletteScreen() {
                 <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
             </ComponentPaletteItem>
 
-            <ComponentPaletteItem name="ChooseSoundButton Component">
-                <ChooseSoundButton buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => Alert.alert('Click to change sound')} />
+            <ComponentPaletteItem name="ButtonGroup Component">
+                <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={(tag) => Alert.alert(`Click to change sound${tag}`)} />
             </ComponentPaletteItem>
 
         </ScrollView>
