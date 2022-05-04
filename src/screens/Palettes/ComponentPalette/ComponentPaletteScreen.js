@@ -100,7 +100,7 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ButtonGroup Component">
-                <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={(tag) => Alert.alert(`Click to change sound${tag}`)} />
+                <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => null} />
             </ComponentPaletteItem>
 
         </ScrollView>
