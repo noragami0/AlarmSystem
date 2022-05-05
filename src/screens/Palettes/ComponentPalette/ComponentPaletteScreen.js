@@ -23,6 +23,7 @@ import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
 import AppButton from '../../../components/AppButton/AppButton';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
 import ButtonGroup from '../../../components/ButtonGroup/ButtonGroup';
+import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddress';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -108,6 +109,13 @@ function ComponentPaletteScreen() {
                 <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => null} />
             </ComponentPaletteItem>
 
+            <ComponentPaletteItem name="SanctuaryAddress Component">
+                <SanctuaryAddress
+                    sanctuaryDestination={100}
+                    sanctuaryNumber={456}
+                    sanctuaryAddress={MockData.ADDRESS}
+                />
+            </ComponentPaletteItem>
         </ScrollView>
     );
 }
