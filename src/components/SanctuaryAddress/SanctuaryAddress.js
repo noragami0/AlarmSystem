@@ -7,15 +7,19 @@ import {
 import {AppFont} from '../../utils/res/fonts';
 import {ColorR} from '../../utils/res/theme';
 
-export default function SanctuaryAddress({text}) {
+export default function SanctuaryAddress({
+    sanctuaryDestination,
+    sanctuaryNumber,
+    sanctuaryAddress,
+}) {
     return (
         <View style={styles.wrapper}>
             <View style={styles.leftBlock}>
-                <Text style={AppFont(16, 600, ColorR.BLACK)}>{text}</Text>
+                <Text style={AppFont(16, 600, ColorR.BLACK)}>{`${sanctuaryDestination}m`}</Text>
             </View>
             <View style={styles.rightBlock}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{text}</Text>
-                <Text style={AppFont(15, 500, ColorR.BLACK)}>{text}</Text>
+                <Text style={AppFont(15, 600, ColorR.BLACK)}>{`Сховище №${sanctuaryNumber}`}</Text>
+                <Text style={AppFont(15, 500, ColorR.BLACK)}>{sanctuaryAddress}</Text>
             </View>
         </View>
     );

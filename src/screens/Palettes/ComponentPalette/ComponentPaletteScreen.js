@@ -77,7 +77,11 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="SanctuaryAddress Component">
-                <SanctuaryAddress text={MockData.TITLE} />
+                <SanctuaryAddress
+                    sanctuaryDestination={100}
+                    sanctuaryNumber={456}
+                    sanctuaryAddress={MockData.ADDRESS}
+                />
             </ComponentPaletteItem>
         </ScrollView>
     );
