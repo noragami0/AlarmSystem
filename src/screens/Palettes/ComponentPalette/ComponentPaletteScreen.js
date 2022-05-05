@@ -18,6 +18,7 @@ import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
 import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
 import AppButton from '../../../components/AppButton/AppButton';
+import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddress';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -73,6 +74,10 @@ function ComponentPaletteScreen() {
 
             <ComponentPaletteItem name="AppButton Component">
                 <AppButton text={MockData.TITLE} onClick={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="SanctuaryAddress Component">
+                <SanctuaryAddress text={MockData.TITLE} />
             </ComponentPaletteItem>
         </ScrollView>
     );
