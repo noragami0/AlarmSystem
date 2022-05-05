@@ -4,4 +4,5 @@ export const ColorR = {
     BLUE: '#2E88CC',
     BLACK: '#000',
     RED: '#FF0000',
+    LIGHT_GRAY: '#B9B9B9',
 };

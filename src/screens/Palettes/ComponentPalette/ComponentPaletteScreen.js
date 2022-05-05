@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {
-    ScrollView, Alert,
+    ScrollView,
 } from 'react-native';
+import moment from 'moment';
 import ComponentPaletteItem from './ComponentPaletteItem';
 import DateTime from '../../../components/DateTime/DateTime';
 import Icon from '../../../components/Icon/Icon';
@@ -14,16 +15,24 @@ import ButtonWithIcon from '../../../components/ButtonWithIcon/ButtonWithIcon';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
+import AirRaidAlert from '../../../components/AirRaidAlert/AirRaidAlert';
+import AppSlider from '../../../components/AppSlider/AppSlider';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
 import {DANGER_LEVEL} from '../../../utils/constants';
 import ItalicLabel from '../../../components/ItalicLabel/ItalicLabel';
 import AppButton from '../../../components/AppButton/AppButton';
+import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
+import ButtonGroup from '../../../components/ButtonGroup/ButtonGroup';
 import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddress';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
     const navPanel = NavPanelButtonsModel.create(
-        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'}, {icon: IconsR.LIST_ICON, tag: 'LIST'}],
+        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'},
+            {icon: IconsR.LIST_ICON, tag: 'LIST'},
+            {icon: IconsR.HOME_ICON, tag: 'HOME'},
+            {icon: IconsR.SETTING_ICON, tag: 'SETTINGS'},
+            {icon: IconsR.INFO_ICON, tag: 'INFO'}],
         {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
     );
 
@@ -35,7 +44,6 @@ function ComponentPaletteScreen() {
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
-
             <ComponentPaletteItem name="Icon Component">
                 <Icon icon={IconsR.HOME_ICON} />
             </ComponentPaletteItem>
@@ -48,32 +56,57 @@ function ComponentPaletteScreen() {
                 <ToggleButton
                     isEnabled={isEnabledToggleButton}
                     onChange={onChangeToggleButton}
-                    text={MockData.VIBRATE}
+                    text={MockData.TITLE}
                 />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ButtonWithArrow Component">
-                <ButtonWithArrow text={MockData.SHARE} onClick={() => Alert.alert('Click on button with arrow')} />
+                <ButtonWithArrow text={MockData.TITLE} onClick={() => null} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ButtonWithIcon Component">
-                <ButtonWithIcon selectedIcon={IconsR.EMAIL_ICON} iconColor={ColorR.GREY} text={MockData.EMAIL} onClick={() => Alert.alert('Click on email')} />
+                <ButtonWithIcon
+                    selectedIcon={IconsR.EMAIL_ICON}
+                    iconColor={ColorR.GREY}
+                    text={MockData.EMAIL}
+                    onClick={() => null}
+                />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AppLink Component">
-                <AppLink text={MockData.TITLE} onClick={() => Alert.alert('Click on Link')} />
+                <AppLink text={MockData.TITLE} onClick={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AirRaidAlert Component">
+                <AirRaidAlert text={MockData.TITLE} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AttentionIcon Component">
-                <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
+                <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} isSmall={true} />
             </ComponentPaletteItem>
 
+            <ComponentPaletteItem name="CurrentAttention Component">
+                <CurrentAttention
+                    dangerLevel={DANGER_LEVEL.HIGH}
+                    title={MockData.TITLE}
+                    dateFrom={moment(new Date()).subtract(1, 'day')}
+                    dateTo={moment(new Date())}
+                />
+            </ComponentPaletteItem>
             <ComponentPaletteItem name="ItalicLabel Component">
                 <ItalicLabel text={MockData.AUDIO} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="AppButton Component">
                 <AppButton text={MockData.TITLE} onClick={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="AppSlider Component">
+                <AppSlider text={MockData.TITLE} onChange={() => null} />
+            </ComponentPaletteItem>
+
+            <ComponentPaletteItem name="ButtonGroup Component">
+                <ButtonGroup buttons={[{text: 'Button 1', tag: 'BUTTON1'}, {text: 'Button 2', tag: 'BUTTON2'}]} onClick={() => null} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="SanctuaryAddress Component">
@@ -86,4 +119,5 @@ function ComponentPaletteScreen() {
         </ScrollView>
     );
 }
+
 export default ComponentPaletteScreen;
