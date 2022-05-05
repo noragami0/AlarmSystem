@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         color: 'red',
         marginVertical: 10,
         marginHorizontal: 10,
+        textAlign: 'center',
     },
 });
 

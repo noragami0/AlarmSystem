@@ -13,7 +13,7 @@
     "extends": ["airbnb"],
     "rules": {
         "object-curly-spacing": ["error", "never"],
-        "indent": ["error", 4],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "react/jsx-indent": ["error", 4],
         "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
         "react/jsx-indent-props": ["error", 4],
@@ -21,6 +21,11 @@
         "linebreak-style": "off",
         "no-use-before-define": "off",
         "no-plusplus": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "react/prop-types": "off",
+        "no-param-reassign": "off",
+        "react/no-array-index-key": "off",
+        "global-require": "off",
+        "react/jsx-boolean-value": "off"
     }
 }
