@@ -57,6 +57,7 @@ function ComponentPaletteScreen() {
                     isEnabled={isEnabledToggleButton}
                     onChange={onChangeToggleButton}
                     text={MockData.TITLE}
+                    isDisabled={false}
                 />
             </ComponentPaletteItem>
 
