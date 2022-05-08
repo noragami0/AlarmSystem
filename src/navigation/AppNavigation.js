@@ -15,7 +15,10 @@ const screens = [
     {
         name: RouteNames.HOME,
         component: HomeScreen,
-        options: {title: 'Home'},
+        options: {
+            title: 'Home',
+            animation: 'none',
+        },
     },
     {
         name: RouteNames.PROFILE,
@@ -77,7 +80,7 @@ function AppNavigation() {
 
     return (
         <NavigationContainer ref={navigationRef}>
-            <Stack.Navigator initialRouteName={DEFAULT_SCREEN}>
+            <Stack.Navigator initialRouteName={DEFAULT_SCREEN} animationEnabled={false}>
                 {screens.map((screen) => renderScreen(screen))}
             </Stack.Navigator>
             <NavPanelButtons
