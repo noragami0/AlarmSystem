@@ -28,6 +28,18 @@ const screens = [
         options: {title: 'Component Palette'},
     },
 ];
+const NAV_ICONS_TAGS = {
+    LOCATION: 'LOCATION',
+    LIST: 'LIST',
+    HOME: 'HOME',
+    SETTINGS: 'SETTINGS',
+    INFO: 'INFO',
+};
+const navPanelIcons = [{icon: IconsR.PIN_ICON, tag: NAV_ICONS_TAGS.LOCATION},
+    {icon: IconsR.LIST_ICON, tag: NAV_ICONS_TAGS.LIST},
+    {icon: IconsR.HOME_ICON, tag: NAV_ICONS_TAGS.HOME},
+    {icon: IconsR.SETTING_ICON, tag: NAV_ICONS_TAGS.SETTINGS},
+    {icon: IconsR.INFO_ICON, tag: NAV_ICONS_TAGS.INFO}];
 
 function AppNavigation() {
     const renderScreen = (screen) => (
@@ -40,39 +52,37 @@ function AppNavigation() {
     );
     const [selectedIcon, setSelectedIcon] = useState(undefined);
 
+    const onNavPanelIconClick = (tag) => {
+        setSelectedIcon(tag);
+        switch (tag) {
+            case 'HOME':
+                NavigationUtils.navigate(RouteNames.HOME);
+                break;
+            case 'LIST':
+                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                break;
+            case 'LOCATION':
+                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                break;
+            case 'SETTINGS':
+                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                break;
+            case 'INFO':
+                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                break;
+            default:
+                break;
+        }
+    };
+
     return (
         <NavigationContainer ref={navigationRef}>
             <Stack.Navigator initialRouteName={DEFAULT_SCREEN}>
                 {screens.map((screen) => renderScreen(screen))}
             </Stack.Navigator>
             <NavPanelButtons
-                icons={[{icon: IconsR.PIN_ICON, tag: 'LOCATION'},
-                    {icon: IconsR.LIST_ICON, tag: 'LIST'},
-                    {icon: IconsR.HOME_ICON, tag: 'HOME'},
-                    {icon: IconsR.SETTING_ICON, tag: 'SETTINGS'},
-                    {icon: IconsR.INFO_ICON, tag: 'INFO'}]}
-                onClick={(tag) => {
-                    setSelectedIcon(tag);
-                    switch (tag) {
-                        case 'HOME':
-                            NavigationUtils.navigate(RouteNames.HOME);
-                            break;
-                        case 'LIST':
-                            NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
-                            break;
-                        case 'LOCATION':
-                            NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
-                            break;
-                        case 'SETTINGS':
-                            NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
-                            break;
-                        case 'INFO':
-                            NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
-                            break;
-                        default:
-                            break;
-                    }
-                }}
+                icons={navPanelIcons}
+                onClick={onNavPanelIconClick}
                 selectedIcon={selectedIcon}
             />
         </NavigationContainer>
