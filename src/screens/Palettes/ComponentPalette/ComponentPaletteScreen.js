@@ -8,7 +8,6 @@ import DateTime from '../../../components/DateTime/DateTime';
 import Icon from '../../../components/Icon/Icon';
 import {IconsR} from '../../../utils/res/icons';
 import NavPanelButtons from '../../../components/NavPanel/NavPanelButtons';
-import {NavPanelButtonsModel} from '../../../components/NavPanel/NavPanelButtonsModel';
 import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import {MockData} from '../../../utils/mockData';
 import ButtonWithIcon from '../../../components/ButtonWithIcon/ButtonWithIcon';
@@ -27,14 +26,6 @@ import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddr
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
-    const navPanel = NavPanelButtonsModel.create(
-        [{icon: IconsR.PIN_ICON, tag: 'LOCATION'},
-            {icon: IconsR.LIST_ICON, tag: 'LIST'},
-            {icon: IconsR.HOME_ICON, tag: 'HOME'},
-            {icon: IconsR.SETTING_ICON, tag: 'SETTINGS'},
-            {icon: IconsR.INFO_ICON, tag: 'INFO'}],
-        {selectedIcon, onClick: (tag) => setSelectedIcon(tag)},
-    );
 
     const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
     const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
@@ -49,7 +40,15 @@ function ComponentPaletteScreen() {
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="NavPanelButtons Component">
-                <NavPanelButtons model={navPanel} />
+                <NavPanelButtons
+                    icons={[{icon: IconsR.PIN_ICON, tag: 'LOCATION'},
+                        {icon: IconsR.LIST_ICON, tag: 'LIST'},
+                        {icon: IconsR.HOME_ICON, tag: 'HOME'},
+                        {icon: IconsR.SETTING_ICON, tag: 'SETTINGS'},
+                        {icon: IconsR.INFO_ICON, tag: 'INFO'}]}
+                    onClick={(tag) => setSelectedIcon(tag)}
+                    selectedIcon={selectedIcon}
+                />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="ToggleButton Component">
