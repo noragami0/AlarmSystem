@@ -55,19 +55,19 @@ function AppNavigation() {
     const onNavPanelIconClick = (tag) => {
         setSelectedIcon(tag);
         switch (tag) {
-            case 'HOME':
+            case NAV_ICONS_TAGS.HOME:
                 NavigationUtils.navigate(RouteNames.HOME);
                 break;
-            case 'LIST':
+            case NAV_ICONS_TAGS.LIST:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
                 break;
-            case 'LOCATION':
+            case NAV_ICONS_TAGS.LOCATION:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
                 break;
-            case 'SETTINGS':
+            case NAV_ICONS_TAGS.SETTINGS:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
                 break;
-            case 'INFO':
+            case NAV_ICONS_TAGS.INFO:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
                 break;
             default:
