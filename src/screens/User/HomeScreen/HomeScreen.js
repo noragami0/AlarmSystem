@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
-        marginTop: '25%',
+        marginTop: '10%',
         width: '100%',
         textAlign: 'center',
         marginBottom: '10%',

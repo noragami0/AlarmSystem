@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, View, StyleSheet} from 'react-native';
 import {DANGER_LEVEL} from '../../utils/constants';
 
 const images = {
@@ -24,9 +24,15 @@ function AttentionIcon({dangerLevel, isSmall}) {
         <View>
             {dangerLevel === DANGER_LEVEL.NO_DANGER
                 ? null
-                : <Image source={getImageSrc()} />}
+                : <Image source={getImageSrc()} style={styles.image} />}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    image: {
+        marginTop: '20%',
+    },
+});
 
 export default AttentionIcon;

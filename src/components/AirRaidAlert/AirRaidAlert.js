@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: '25%',
     },
     text: {
         ...AppFont(24, 700, ColorR.BLACK),
