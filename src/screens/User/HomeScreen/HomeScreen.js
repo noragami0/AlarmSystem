@@ -20,18 +20,25 @@ function HomeScreen() {
                         onClick={() => setIsSettingShown(false)}
                         style={styles.firstButton}
                     />
-                    <AppButton
-                        text={localize.general.geolocation}
-                        onClick={() => setIsSettingShown(false)}
-                    />
+                    <View style={styles.geoButton}>
+                        <AppButton
+                            text={localize.general.geolocation}
+                            onClick={() => setIsSettingShown(false)}
+                        />
+                    </View>
+
                 </>
             ) : (
                 <>
-                    <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
-                    <AirRaidAlert text={localize.general.danger} />
+                    <View style={styles.icon}>
+                        <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
+                    </View>
+                    <View style={styles.attention}>
+                        <AirRaidAlert text={localize.general.danger} />
+                    </View>
                     <Text style={styles.location}>
                         Миколаївська область
-                        {'\n'}
+                        {'\n\n'}
                         м. Вознесенськ та Вознесенська територіальна громадам
                     </Text>
                     <AppLink text={localize.general.change} />
@@ -48,12 +55,17 @@ const styles = StyleSheet.create({
         flex: 1,
         marginRight: '10%',
         marginLeft: '10%',
-        alignItems: 'center',
         justifyContent: 'center',
+    },
+    geoButton: {
+        marginTop: '10%',
     },
     icon: {
         resizeMode: 'center',
         alignSelf: 'center',
+    },
+    attention: {
+        marginTop: '20%',
     },
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
