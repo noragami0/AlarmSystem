@@ -4,6 +4,7 @@ export const RouteNames = {
     COMPONENT_PALETTE: 'COMPONENT_PALETTE',
     HOME: 'HOME',
     PROFILE: 'PROFILE',
+    INFO: 'INFO',
 };
 
 export const navigationRef = createNavigationContainerRef();
