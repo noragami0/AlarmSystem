@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        ...AppFont(24, 700, ColorR.BLACK),
+        ...AppFont(21, 700, ColorR.BLACK),
         textTransform: 'uppercase',
     },
 });

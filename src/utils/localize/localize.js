@@ -4,6 +4,8 @@ export const localize = {
         minutesAbbr: 'хв.',
         metersAbbr: 'м',
         sanctuary: 'Сховище',
+    },
+    homeScreen: {
         region: 'обрати свій регіон',
         geolocation: 'увімкнути геолокацію',
         danger: 'повітряна тривога',

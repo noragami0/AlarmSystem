@@ -15,14 +15,15 @@ function HomeScreen() {
         <View style={styles.wrapper}>
             {isSettingsShown ? (
                 <>
-                    <AppButton
-                        text={localize.general.region}
-                        onClick={() => setIsSettingShown(false)}
-                        style={styles.firstButton}
-                    />
+                    <View style={styles.regButton}>
+                        <AppButton
+                            text={localize.homeScreen.region}
+                            onClick={() => setIsSettingShown(false)}
+                        />
+                    </View>
                     <View style={styles.geoButton}>
                         <AppButton
-                            text={localize.general.geolocation}
+                            text={localize.homeScreen.geolocation}
                             onClick={() => setIsSettingShown(false)}
                         />
                     </View>
@@ -34,14 +35,14 @@ function HomeScreen() {
                         <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
                     </View>
                     <View style={styles.attention}>
-                        <AirRaidAlert text={localize.general.danger} />
+                        <AirRaidAlert text={localize.homeScreen.danger} />
                     </View>
                     <Text style={styles.location}>
                         Миколаївська область
                         {'\n\n'}
                         м. Вознесенськ та Вознесенська територіальна громадам
                     </Text>
-                    <AppLink text={localize.general.change} />
+                    <AppLink text={localize.homeScreen.change} />
                 </>
 
             )}
@@ -52,27 +53,30 @@ function HomeScreen() {
 
 const styles = StyleSheet.create({
     wrapper: {
-        flex: 1,
-        marginRight: '10%',
-        marginLeft: '10%',
+        marginVertical: 180,
+        marginLeft: 40,
+        marginRight: 40,
+        alignItems: 'center',
         justifyContent: 'center',
     },
-    geoButton: {
-        marginTop: '10%',
+    regButton: {
+        width: '100%',
+        maxWidth: 276,
     },
-    icon: {
-        resizeMode: 'center',
-        alignSelf: 'center',
+    geoButton: {
+        marginTop: 40,
+        width: '100%',
+        maxWidth: 276,
     },
     attention: {
-        marginTop: '20%',
+        marginTop: 45,
     },
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
-        marginTop: '10%',
+        marginTop: 20,
         width: '100%',
         textAlign: 'center',
-        marginBottom: '10%',
+        marginBottom: 20,
 
     },
 });
