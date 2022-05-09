@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     },
     text: {
         ...AppFont(16, 700, ColorR.BLACK),
+        textTransform: 'uppercase',
     },
 });
