@@ -9,7 +9,7 @@ export const localize = {
         region: 'обрати свій регіон',
         geolocation: 'увімкнути геолокацію',
         danger: 'повітряна тривога',
-        no_danger: 'немає тривоги',
+        noDanger: 'немає тривоги',
         change: 'Змінити',
     },
 };

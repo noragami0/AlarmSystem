@@ -47,7 +47,7 @@ function HomeScreen() {
                     >
                         <AirRaidAlert text={
                             dangerLevel === DANGER_LEVEL.NO_DANGER
-                                ? localize.homeScreen.no_danger
+                                ? localize.homeScreen.noDanger
                                 : localize.homeScreen.danger
                         }
                         />
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
         marginTop: 20,
+        width: '100%',
         textAlign: 'center',
         marginBottom: 20,
     },
