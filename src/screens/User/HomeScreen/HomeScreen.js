@@ -41,10 +41,7 @@ function HomeScreen() {
                     <View style={styles.icon}>
                         <AttentionIcon dangerLevel={dangerLevel} />
                     </View>
-                    <View style={dangerLevel === DANGER_LEVEL.NO_DANGER
-                        ? styles.noDanger
-                        : styles.danger}
-                    >
+                    <View style={styles.dangerCaption}>
                         <AirRaidAlert text={
                             dangerLevel === DANGER_LEVEL.NO_DANGER
                                 ? localize.homeScreen.noDanger
@@ -80,7 +77,7 @@ const styles = StyleSheet.create({
         width: '100%',
         maxWidth: 276,
     },
-    danger: {
+    dangerCaption: {
         marginTop: 45,
     },
     noDanger: {
