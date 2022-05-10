@@ -53,9 +53,8 @@ function HomeScreen() {
 
 const styles = StyleSheet.create({
     wrapper: {
-        marginVertical: 180,
-        marginLeft: 40,
-        marginRight: 40,
+        flex: 1,
+        marginHorizontal: 17,
         alignItems: 'center',
         justifyContent: 'center',
     },
