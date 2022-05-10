@@ -18,6 +18,7 @@ const screens = [
         options: {
             title: 'Home',
             animation: 'none',
+            headerShown: false,
         },
     },
     {

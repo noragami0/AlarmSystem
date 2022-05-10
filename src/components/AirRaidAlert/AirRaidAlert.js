@@ -7,7 +7,7 @@ import GlobalStyles from '../../utils/res/globalStyles';
 export default function AirRaidAlert({text}) {
     return (
         <View style={[GlobalStyles.buttonComponent, styles.button]}>
-            <Text style={AppFont(24, 700, ColorR.BLACK)}>{text}</Text>
+            <Text style={styles.text}>{text}</Text>
         </View>
     );
 }
@@ -15,5 +15,12 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+        maxWidth: 276,
+        padding: 11,
+    },
+    text: {
+        ...AppFont(21, 700, ColorR.BLACK),
+        textTransform: 'uppercase',
     },
 });
