@@ -80,11 +80,6 @@ const styles = StyleSheet.create({
     dangerCaption: {
         marginTop: 45,
     },
-    noDanger: {
-        marginTop: 230,
-        marginBottom: 20,
-
-    },
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
         marginTop: 20,
