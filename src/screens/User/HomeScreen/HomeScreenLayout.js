@@ -1,8 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 export default function HomeScreenLayout({children}) {
     return (
-        <View>{children}</View>
+        <View style={styles.container}>{children}</View>
     );
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});
