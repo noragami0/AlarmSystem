@@ -28,7 +28,10 @@ function HomeScreen() {
                     <View style={styles.geoButton}>
                         <AppButton
                             text={localize.homeScreen.geolocation}
-                            onClick={() => setIsSettingShown(false)}
+                            onClick={() => {
+                                setIsSettingShown(false);
+                                setDangerLevel(DANGER_LEVEL.NO_DANGER);
+                            }}
                         />
                     </View>
 
@@ -38,8 +41,16 @@ function HomeScreen() {
                     <View style={styles.icon}>
                         <AttentionIcon dangerLevel={dangerLevel} />
                     </View>
-                    <View style={styles.attention}>
-                        <AirRaidAlert text={localize.homeScreen.danger} />
+                    <View style={dangerLevel === DANGER_LEVEL.NO_DANGER
+                        ? styles.noDanger
+                        : styles.danger}
+                    >
+                        <AirRaidAlert text={
+                            dangerLevel === DANGER_LEVEL.NO_DANGER
+                                ? localize.homeScreen.no_danger
+                                : localize.homeScreen.danger
+                        }
+                        />
                     </View>
                     <Text style={styles.location}>
                         Миколаївська область
@@ -69,16 +80,19 @@ const styles = StyleSheet.create({
         width: '100%',
         maxWidth: 276,
     },
-    attention: {
+    danger: {
         marginTop: 45,
+    },
+    noDanger: {
+        marginTop: 230,
+        marginBottom: 20,
+
     },
     location: {
         ...AppFont(16, 600, ColorR.BLACK),
         marginTop: 20,
-        width: '100%',
         textAlign: 'center',
         marginBottom: 20,
-
     },
 });
 export default HomeScreen;

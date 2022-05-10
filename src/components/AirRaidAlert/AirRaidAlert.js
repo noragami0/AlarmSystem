@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+        maxWidth: 276,
+        padding: 11,
     },
     text: {
         ...AppFont(21, 700, ColorR.BLACK),
