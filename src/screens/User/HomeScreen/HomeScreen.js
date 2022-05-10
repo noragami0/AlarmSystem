@@ -11,6 +11,7 @@ import AirRaidAlert from '../../../components/AirRaidAlert/AirRaidAlert';
 
 function HomeScreen() {
     const [isSettingsShown, setIsSettingShown] = useState(true);
+    const [dangerLevel, setDangerLevel] = useState(DANGER_LEVEL.MEDIUM);
     return (
         <View style={styles.wrapper}>
             {isSettingsShown ? (
@@ -18,7 +19,10 @@ function HomeScreen() {
                     <View style={styles.regButton}>
                         <AppButton
                             text={localize.homeScreen.region}
-                            onClick={() => setIsSettingShown(false)}
+                            onClick={() => {
+                                setIsSettingShown(false);
+                                setDangerLevel(DANGER_LEVEL.HIGH);
+                            }}
                         />
                     </View>
                     <View style={styles.geoButton}>
@@ -32,7 +36,7 @@ function HomeScreen() {
             ) : (
                 <>
                     <View style={styles.icon}>
-                        <AttentionIcon dangerLevel={DANGER_LEVEL.HIGH} />
+                        <AttentionIcon dangerLevel={dangerLevel} />
                     </View>
                     <View style={styles.attention}>
                         <AirRaidAlert text={localize.homeScreen.danger} />
@@ -44,9 +48,7 @@ function HomeScreen() {
                     </Text>
                     <AppLink text={localize.homeScreen.change} />
                 </>
-
             )}
-
         </View>
     );
 }
