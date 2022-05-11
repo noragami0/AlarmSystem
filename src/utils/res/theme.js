@@ -6,4 +6,5 @@ export const ColorR = {
     RED: '#FF0000',
     LIGHT_GRAY: '#B9B9B9',
     PAGE_BG: '#F2F6F9',
+    GREEN: '#0FE918',
 };

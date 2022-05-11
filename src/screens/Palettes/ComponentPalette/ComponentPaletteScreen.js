@@ -34,7 +34,7 @@ function ComponentPaletteScreen() {
     return (
         <ScrollView>
             <ComponentPaletteItem name="AirDot Component">
-                <AirDot color={ColorR.BLACK} />
+                <AirDot color={ColorR.BLACK} radius={100} />
             </ComponentPaletteItem>
 
             <ComponentPaletteItem name="DateTime Component">

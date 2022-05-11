@@ -4,9 +4,17 @@ import {
 } from 'react-native-svg';
 import {ColorR} from '../../utils/res/theme';
 
-function AirDot({color}) {
+function AirDot({color, radius}) {
+    if (!radius) {
+        radius = 100;
+    }
+
+    if (!color) {
+        color = ColorR.BLACK;
+    }
+
     return (
-        <Svg height="200" width="200">
+        <Svg height={radius * 2} width={radius * 2}>
             <Defs>
                 <RadialGradient id="dotGrad">
                     <Stop offset="0%" stopColor={color} stopOpacity="1" />
@@ -14,7 +22,7 @@ function AirDot({color}) {
                     <Stop offset="100%" stopColor={ColorR.PAGE_BG} stopOpacity="1" />
                 </RadialGradient>
             </Defs>
-            <Circle cx="100" cy="100" r="100" fill="url(#dotGrad)" />
+            <Circle cx={radius} cy={radius} r={radius} fill="url(#dotGrad)" />
         </Svg>
     );
 }

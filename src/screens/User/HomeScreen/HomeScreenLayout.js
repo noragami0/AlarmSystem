@@ -1,29 +1,48 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {
-    Svg, Defs, RadialGradient, Stop, Circle,
-} from 'react-native-svg';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import {ColorR} from '../../../utils/res/theme';
+import AirDot from '../../../components/AirDot/AirDot';
+import {DANGER_LEVEL} from '../../../utils/constants';
 
-export default function HomeScreenLayout({children}) {
-    const dot = (color) => (
-        <Svg height="300" width="300">
-            <Defs>
-                <RadialGradient id="dotGrad">
-                    <Stop offset="0%" stopColor={color} stopOpacity="1" />
-                    <Stop offset="30%" stopColor={color} stopOpacity="1" />
-                    <Stop offset="100%" stopColor={ColorR.PAGE_BG} stopOpacity="1" />
-                </RadialGradient>
-            </Defs>
-            <Circle r="300" fill="url(#dotGrad)" />
-        </Svg>
-    );
+const DOT_RADIUS = 150;
+const NAVIGATION_BAR_HEIGHT = 35;
+
+const DOTS_NO_DANGER = [
+    {color: ColorR.GREEN, top: 0, left: DOT_RADIUS},
+    {color: ColorR.GREEN, bottom: DOT_RADIUS, left: 0},
+    {color: ColorR.GREEN, bottom: Dimensions.get('window').height / 2 - NAVIGATION_BAR_HEIGHT, right: 0},
+];
+
+export default function HomeScreenLayout({children, dangerLevel}) {
+    const getDotOffset = (offset) => (offset === undefined ? undefined : offset - DOT_RADIUS);
+
+    const renderDots = (dots) => dots.map((item, index) => (
+        <View
+            key={index}
+            style={[styles.dot, {
+                top: getDotOffset(item.top),
+                right: getDotOffset(item.right),
+                left: getDotOffset(item.left),
+                bottom: getDotOffset(item.bottom),
+            }]}
+        >
+            <AirDot color={item.color} radius={DOT_RADIUS} />
+        </View>
+    ));
+
+    const getDots = () => {
+        switch (dangerLevel) {
+            case DANGER_LEVEL.NO_DANGER:
+                return DOTS_NO_DANGER;
+
+            default:
+                return [];
+        }
+    };
 
     return (
         <View style={styles.container}>
-            <View style={styles.dot}>
-                {dot(ColorR.BLACK)}
-            </View>
+            {renderDots(getDots())}
             {children}
         </View>
     );
@@ -35,7 +54,5 @@ const styles = StyleSheet.create({
     },
     dot: {
         position: 'absolute',
-        top: 0,
-        left: 0,
     },
 });
