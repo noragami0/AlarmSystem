@@ -12,10 +12,10 @@ import HomeScreenLayout from './HomeScreenLayout';
 
 function HomeScreen() {
     const [isSettingsShown, setIsSettingShown] = useState(true);
-    const [dangerLevel, setDangerLevel] = useState(DANGER_LEVEL.NO_DANGER);
+    const [dangerLevel, setDangerLevel] = useState(null);
 
     return (
-        <HomeScreenLayout dangerLevel={dangerLevel}>
+        <HomeScreenLayout dangerLevel={isSettingsShown === false ? dangerLevel : null}>
             <View style={styles.wrapper}>
                 {isSettingsShown ? (
                     <>

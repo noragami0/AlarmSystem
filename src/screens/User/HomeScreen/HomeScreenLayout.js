@@ -12,7 +12,16 @@ const DOTS_NO_DANGER = [
     {color: ColorR.GREEN, bottom: DOT_RADIUS, left: 0},
     {color: ColorR.GREEN, bottom: Dimensions.get('window').height / 2 - NAVIGATION_BAR_HEIGHT, right: 0},
 ];
-
+const DOTS_MEDIUM = [
+    {color: ColorR.YELLOW, top: 0, left: 0},
+    {color: ColorR.YELLOW, bottom: DOT_RADIUS, left: 0},
+    {color: ColorR.YELLOW, bottom: Dimensions.get('window').height / 2 - NAVIGATION_BAR_HEIGHT, right: 0},
+];
+const DOTS_HIGH = [
+    {color: ColorR.LIGHT_RED, top: 0, left: 0},
+    {color: ColorR.LIGHT_RED, bottom: DOT_RADIUS, left: 0},
+    {color: ColorR.LIGHT_RED, bottom: Dimensions.get('window').height / 2 - NAVIGATION_BAR_HEIGHT, right: 0},
+];
 export default function HomeScreenLayout({children, dangerLevel}) {
     const getDotOffset = (offset) => (offset === undefined ? undefined : offset - DOT_RADIUS);
 
@@ -34,7 +43,10 @@ export default function HomeScreenLayout({children, dangerLevel}) {
         switch (dangerLevel) {
             case DANGER_LEVEL.NO_DANGER:
                 return DOTS_NO_DANGER;
-
+            case DANGER_LEVEL.MEDIUM:
+                return DOTS_MEDIUM;
+            case DANGER_LEVEL.HIGH:
+                return DOTS_HIGH;
             default:
                 return [];
         }
