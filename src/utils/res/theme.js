@@ -5,5 +5,4 @@ export const ColorR = {
     BLACK: '#000',
     RED: '#FF0000',
     LIGHT_GRAY: '#B9B9B9',
-    PAGE_BG: '#F2F6F9',
 };
