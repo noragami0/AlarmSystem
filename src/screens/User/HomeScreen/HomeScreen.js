@@ -15,7 +15,7 @@ function HomeScreen() {
     const [dangerLevel, setDangerLevel] = useState(null);
 
     return (
-        <HomeScreenLayout dangerLevel={isSettingsShown === false ? dangerLevel : null}>
+        <HomeScreenLayout dangerLevel={dangerLevel}>
             <View style={styles.wrapper}>
                 {isSettingsShown ? (
                     <>
