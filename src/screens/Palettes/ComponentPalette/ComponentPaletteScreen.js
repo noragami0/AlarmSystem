@@ -23,6 +23,7 @@ import AppButton from '../../../components/AppButton/AppButton';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
 import ButtonGroup from '../../../components/ButtonGroup/ButtonGroup';
 import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddress';
+import AirDot from '../../../components/AirDot/AirDot';
 
 function ComponentPaletteScreen() {
     const [selectedIcon, setSelectedIcon] = useState(undefined);
@@ -32,9 +33,14 @@ function ComponentPaletteScreen() {
 
     return (
         <ScrollView>
+            <ComponentPaletteItem name="AirDot Component">
+                <AirDot color={ColorR.BLACK} />
+            </ComponentPaletteItem>
+
             <ComponentPaletteItem name="DateTime Component">
                 <DateTime />
             </ComponentPaletteItem>
+
             <ComponentPaletteItem name="Icon Component">
                 <Icon icon={IconsR.HOME_ICON} />
             </ComponentPaletteItem>
