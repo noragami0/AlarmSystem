@@ -12,4 +12,12 @@ export const localize = {
         noDanger: 'немає тривоги',
         change: 'Змінити',
     },
+    settingsScreen: {
+        volumeSettings: 'Налаштувати звук оповіщення',
+        endAlarm: 'Звук відбою тривоги',
+        startAlarm: 'Звук оголошення тривоги',
+        selectEndAlarm: 'Обрати звук відбою тривоги',
+        selectStartAlarm: 'Обрати звук оголошення тривоги',
+        download: 'Завантажити',
+    },
 };
