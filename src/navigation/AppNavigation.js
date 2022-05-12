@@ -37,7 +37,6 @@ const screens = [
         component: AdditionalSettingsScreen,
         options: {
             title: 'SettingsScreen',
-            animation: 'none',
             headerShown: false,
         },
     },
