@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     },
     line: {
         borderWidth: 0.5,
-        width: 350,
+        width: 286,
         borderColor: ColorR.GREY,
         margin: 10,
     },
