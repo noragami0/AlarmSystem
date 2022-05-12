@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     subTitle: {
-        ...AppFont(14, 600, ColorR.LIGHT_GRAY),
+        ...AppFont(14, 600, ColorR.DARK_GRAY),
         textTransform: 'uppercase',
         marginBottom: 25,
     },
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     subTitleTime: {
-        ...AppFont(14, 600, ColorR.LIGHT_GRAY),
+        ...AppFont(14, 600, ColorR.DARK_GRAY),
         marginLeft: 5,
     },
 });
