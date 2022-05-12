@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/User/HomeScreen/HomeScreen';
-import ProfileScreen from '../screens/User/ProfileScreen/ProfileScreen';
+import AttentionListScreen from '../screens/User/AttentionListScreen/AttentionListScreen';
 import {RouteNames, navigationRef, NavigationUtils} from './navigationUtils';
 import {DEFAULT_SCREEN} from '../utils/constants';
 import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/ComponentPaletteScreen';
@@ -23,11 +23,6 @@ const screens = [
         },
     },
     {
-        name: RouteNames.PROFILE,
-        component: ProfileScreen,
-        options: {title: 'Profile'},
-    },
-    {
         name: RouteNames.COMPONENT_PALETTE,
         component: ComponentPaletteScreen,
         options: {title: 'Component Palette'},
@@ -37,6 +32,15 @@ const screens = [
         component: AdditionalSettingsScreen,
         options: {
             title: 'SettingsScreen',
+            headerShown: false,
+        },
+    },
+    {
+        name: RouteNames.LIST,
+        component: AttentionListScreen,
+        options: {
+            title: 'AttentionList',
+            animation: 'none',
             headerShown: false,
         },
     },
@@ -72,7 +76,7 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.HOME);
                 break;
             case NAV_ICONS_TAGS.LIST:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.LIST);
                 break;
             case NAV_ICONS_TAGS.LOCATION:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);

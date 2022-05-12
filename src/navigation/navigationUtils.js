@@ -3,7 +3,7 @@ import {createNavigationContainerRef} from '@react-navigation/native';
 export const RouteNames = {
     COMPONENT_PALETTE: 'COMPONENT_PALETTE',
     HOME: 'HOME',
-    PROFILE: 'PROFILE',
+    LIST: 'LIST',
     SETTINGS: 'SETTINGS',
 
 };

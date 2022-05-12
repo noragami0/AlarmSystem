@@ -10,7 +10,7 @@ import {localize} from '../../utils/localize/localize';
 function CurrentAttention({
     dangerLevel, title, date, dateFrom, dateTo,
 }) {
-    const duration = moment(dateFrom).diff(dateTo);
+    const duration = moment(dateTo).diff(dateFrom);
     return (
         <View style={styles.wrapper}>
 
@@ -28,7 +28,6 @@ function CurrentAttention({
                     <Text style={styles.duration}>
                         {moment.utc(duration).format(`H${localize.general.hourAbbr}mm${localize.general.minutesAbbr}`)}
                     </Text>
-
                 </View>
             </View>
         </View>

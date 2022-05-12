@@ -95,6 +95,7 @@ function ComponentPaletteScreen() {
                 <CurrentAttention
                     dangerLevel={DANGER_LEVEL.HIGH}
                     title={MockData.TITLE}
+                    date={moment(new Date())}
                     dateFrom={moment(new Date()).subtract(1, 'day')}
                     dateTo={moment(new Date())}
                 />

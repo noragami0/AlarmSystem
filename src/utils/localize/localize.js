@@ -20,4 +20,8 @@ export const localize = {
         selectStartAlarm: 'Обрати звук оголошення тривоги',
         download: 'Завантажити',
     },
+    listScreen: {
+        title: 'Активні повітряні тривоги',
+        subTitle: 'Дані станом на:',
+    },
 };
