@@ -1,5 +1,6 @@
 export const localize = {
     general: {
+        daysAbbr: 'д.',
         hourAbbr: 'год.',
         minutesAbbr: 'хв.',
         metersAbbr: 'м',

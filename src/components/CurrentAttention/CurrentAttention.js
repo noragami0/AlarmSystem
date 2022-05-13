@@ -7,10 +7,32 @@ import {ColorR} from '../../utils/res/theme';
 import {AppFont} from '../../utils/res/fonts';
 import {localize} from '../../utils/localize/localize';
 
+const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000;
+const MILLISECONDS_IN_HOUR = 60 * 60 * 1000;
+const MILLISECONDS_IN_MINUTE = 60 * 1000;
+
 function CurrentAttention({
     dangerLevel, title, date, dateFrom, dateTo,
 }) {
     const duration = moment(dateTo).diff(dateFrom);
+
+    const getDuration = () => {
+        const days = Math.floor(duration / MILLISECONDS_IN_DAY);
+        const hours = Math.floor((duration - (days * MILLISECONDS_IN_DAY)) / MILLISECONDS_IN_HOUR);
+        const minutes = Math.floor(
+            (
+                duration
+                - (days * MILLISECONDS_IN_DAY)
+                - (hours * MILLISECONDS_IN_HOUR)
+            ) / MILLISECONDS_IN_MINUTE,
+        );
+        const daysStr = days ? `${days}${localize.general.daysAbbr} ` : '';
+        const hoursStr = `${hours}${localize.general.hourAbbr} `;
+        const minutesStr = `${minutes}${localize.general.minutesAbbr}`;
+
+        return `${daysStr}${hoursStr}${minutesStr}`;
+    };
+
     return (
         <View style={styles.wrapper}>
 
@@ -22,11 +44,11 @@ function CurrentAttention({
 
                 <View style={styles.dateElements}>
                     <Text style={styles.date}>
-                        {moment.utc(date).format('DD MMMM, HH:mm')}
+                        {moment(date).format('DD MMMM, HH:mm')}
                     </Text>
 
                     <Text style={styles.duration}>
-                        {moment.utc(duration).format(`H${localize.general.hourAbbr}mm${localize.general.minutesAbbr}`)}
+                        {getDuration()}
                     </Text>
                 </View>
             </View>
