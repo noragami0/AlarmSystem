@@ -6,6 +6,7 @@ export const RouteNames = {
     INFO: 'INFO',
     LIST: 'LIST',
     SETTINGS: 'SETTINGS',
+    ADD_SETTINGS: 'ADDITIONAL_SETTINGS',
     SANCTUARY: 'SANCTUARY',
 };
 
