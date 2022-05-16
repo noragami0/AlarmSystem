@@ -24,11 +24,10 @@ export const localize = {
         title: 'Активні повітряні тривоги',
         subTitle: 'Дані станом на:',
     },
-    SanctuaryScreen: {
+    sanctuaryScreen: {
         title: 'Найближчі укриття',
         goToMap: 'Переглянути на карті',
         sanctuary: 'Сховище',
-        address: 'просп. Маршала Жукова, 2',
     },
     infoScreen: {
         share: 'Поділитись застосунком',

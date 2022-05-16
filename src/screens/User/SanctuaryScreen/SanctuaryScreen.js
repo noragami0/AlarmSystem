@@ -10,49 +10,42 @@ import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddr
 
 const DATA = [
     {
-        title: localize.SanctuaryScreen.sanctuary,
-        Destination: 100,
-        Number: 50,
-        Address: localize.SanctuaryScreen.address,
+        destination: 100,
+        number: 50,
+        address: 'просп. Маршала Жукова, 2',
     },
     {
-        title: localize.SanctuaryScreen.sanctuary,
-        Destination: 100,
-        Number: 55,
-        Address: localize.SanctuaryScreen.address,
+        destination: 100,
+        number: 55,
+        address: 'просп. Маршала Жукова, 2',
     },
     {
-        title: localize.SanctuaryScreen.sanctuary,
-        Destination: 110,
-        Number: 60,
-        Address: localize.SanctuaryScreen.address,
+        destination: 110,
+        number: 60,
+        address: 'просп. Маршала Жукова, 2',
     },
 ];
 function SanctuaryScreen() {
     const renderItem = ({item}) => (
         <View style={styles.list}>
             <SanctuaryAddress
-                sanctuaryTitle={item.title}
-                sanctuaryDestination={item.Destination}
-                sanctuaryNumber={item.Number}
-                sanctuaryAddress={item.Address}
+                sanctuaryDestination={item.destination}
+                sanctuaryNumber={item.number}
+                sanctuaryAddress={item.address}
             />
         </View>
     );
     return (
         <View style={styles.wrapper}>
-            <Text style={styles.title}>{localize.SanctuaryScreen.title}</Text>
+            <Text style={styles.title}>{localize.sanctuaryScreen.title}</Text>
 
             <FlatList data={DATA} renderItem={renderItem} />
             <View style={styles.arrowButton}>
-                <ButtonWithArrow text={localize.SanctuaryScreen.goToMap} onClick={() => null} />
+                <ButtonWithArrow text={localize.sanctuaryScreen.goToMap} onClick={() => null} />
             </View>
-
         </View>
     );
 }
-
-export default SanctuaryScreen;
 
 const styles = StyleSheet.create({
     wrapper: {
@@ -74,3 +67,5 @@ const styles = StyleSheet.create({
         marginBottom: 26,
     },
 });
+
+export default SanctuaryScreen;

@@ -9,7 +9,6 @@ import {ColorR} from '../../utils/res/theme';
 import {localize} from '../../utils/localize/localize';
 
 export default function SanctuaryAddress({
-    sanctuaryTitle,
     sanctuaryDestination,
     sanctuaryNumber,
     sanctuaryAddress,
@@ -20,7 +19,7 @@ export default function SanctuaryAddress({
                 <Text style={AppFont(16, 600, ColorR.BLACK)}>{`${sanctuaryDestination}${localize.general.metersAbbr}`}</Text>
             </View>
             <View style={styles.rightBlock}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{`${sanctuaryTitle} №${sanctuaryNumber}`}</Text>
+                <Text style={AppFont(15, 600, ColorR.BLACK)}>{`${localize.sanctuaryScreen.sanctuary} №${sanctuaryNumber}`}</Text>
                 <View style={styles.subText}>
                     <Text style={AppFont(15, 500, ColorR.BLACK)}>{sanctuaryAddress}</Text>
                 </View>
