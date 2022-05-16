@@ -9,6 +9,7 @@ import {ColorR} from '../../utils/res/theme';
 import {localize} from '../../utils/localize/localize';
 
 export default function SanctuaryAddress({
+    sanctuaryTitle,
     sanctuaryDestination,
     sanctuaryNumber,
     sanctuaryAddress,
@@ -19,8 +20,10 @@ export default function SanctuaryAddress({
                 <Text style={AppFont(16, 600, ColorR.BLACK)}>{`${sanctuaryDestination}${localize.general.metersAbbr}`}</Text>
             </View>
             <View style={styles.rightBlock}>
-                <Text style={AppFont(15, 600, ColorR.BLACK)}>{`${localize.general.sanctuary} №${sanctuaryNumber}`}</Text>
-                <Text style={AppFont(15, 500, ColorR.BLACK)}>{sanctuaryAddress}</Text>
+                <Text style={AppFont(15, 600, ColorR.BLACK)}>{`${sanctuaryTitle} №${sanctuaryNumber}`}</Text>
+                <View style={styles.subText}>
+                    <Text style={AppFont(15, 500, ColorR.BLACK)}>{sanctuaryAddress}</Text>
+                </View>
             </View>
         </View>
     );
@@ -47,11 +50,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     leftBlock: {
-        backgroundColor: ColorR.GREY,
+        backgroundColor: ColorR.BUTTON_BG,
         width: 55,
         height: 47,
         borderRadius: 12,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    subText: {
+        marginTop: 10,
     },
 });

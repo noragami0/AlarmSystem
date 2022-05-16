@@ -4,7 +4,6 @@ export const localize = {
         hourAbbr: 'год.',
         minutesAbbr: 'хв.',
         metersAbbr: 'м',
-        sanctuary: 'Сховище',
     },
     homeScreen: {
         region: 'обрати свій регіон',
@@ -27,5 +26,8 @@ export const localize = {
     },
     SanctuaryScreen: {
         title: 'Найближчі укриття',
+        goToMap: 'Переглянути на карті',
+        sanctuary: 'Сховище',
+        address: 'просп. Маршала Жукова, 2',
     },
 };
