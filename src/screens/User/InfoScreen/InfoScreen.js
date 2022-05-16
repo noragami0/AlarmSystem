@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     },
     support: {
         ...AppFont(15, 600, ColorR.BLACK),
-
         marginBottom: 14,
     },
 });
