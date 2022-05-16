@@ -34,7 +34,11 @@ const screens = [
     {
         name: RouteNames.INFO,
         component: InfoScreen,
-        options: {title: 'Info'},
+        options: {
+            title: 'Info',
+            animation: 'none',
+            headerShown: false,
+        },
     },
 ];
 const NAV_ICONS_TAGS = {

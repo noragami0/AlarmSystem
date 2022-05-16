@@ -4,6 +4,8 @@ export const localize = {
         minutesAbbr: 'хв.',
         metersAbbr: 'м',
         sanctuary: 'Сховище',
+    },
+    infoScreen: {
         share: 'Поділитись застосунком',
         questions: 'Поширені питання (FAQ)',
         moreInfo: 'Додаткова інформація',
