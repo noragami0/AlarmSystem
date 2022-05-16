@@ -7,7 +7,6 @@ import {ColorR} from '../../../utils/res/theme';
 import {MockData} from '../../../utils/mockData';
 import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
-// import {AppFont} from '../../../utils/res/fonts';
 
 function InfoScreen() {
     return (
@@ -28,7 +27,7 @@ function InfoScreen() {
                     text={MockData.EMAIL}
                     onClick={() => null}
                 />
-                <View style={styles.buttons2}>
+                <View style={styles.faqButton}>
                     <ButtonWithArrow text={localize.infoScreen.questions} onClick={() => null} />
                 </View>
             </View>
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
         ...AppFont(15, 600, ColorR.BLACK),
         marginBottom: 14,
     },
-    buttons2: {
+    faqButton: {
         marginTop: 20,
     },
 });
