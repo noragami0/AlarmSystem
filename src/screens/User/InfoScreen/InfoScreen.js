@@ -18,7 +18,7 @@ function InfoScreen() {
             <View style={styles.buttons}>
                 <ButtonWithArrow text={localize.infoScreen.share} onClick={() => null} />
             </View>
-            <Text style={styles.support}>
+            <Text style={styles.techSupport}>
                 {localize.infoScreen.techSupport}
             </Text>
             <View style={styles.buttons}>
@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
         maxWidth: 335,
         marginBottom: 24,
     },
-    buttons2: {
-        marginTop: 20,
-    },
-    support: {
+    techSupport: {
         ...AppFont(15, 600, ColorR.BLACK),
         marginBottom: 14,
+    },
+    buttons2: {
+        marginTop: 20,
     },
 });
