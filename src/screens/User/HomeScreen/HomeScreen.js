@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {
+    View, StyleSheet, Text, Alert,
+} from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
 import AppButton from '../../../components/AppButton/AppButton';
 import {localize} from '../../../utils/localize/localize';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
@@ -13,6 +16,13 @@ import HomeScreenLayout from './HomeScreenLayout';
 function HomeScreen() {
     const [isSettingsShown, setIsSettingShown] = useState(true);
     const [dangerLevel, setDangerLevel] = useState(null);
+
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
+    Geolocation.getCurrentPosition((position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+    });
 
     return (
         <HomeScreenLayout dangerLevel={dangerLevel}>
@@ -31,10 +41,7 @@ function HomeScreen() {
                         <View style={styles.geoButton}>
                             <AppButton
                                 text={localize.homeScreen.geolocation}
-                                onClick={() => {
-                                    setIsSettingShown(false);
-                                    setDangerLevel(DANGER_LEVEL.NO_DANGER);
-                                }}
+                                onClick={() => Alert.alert(`Latitude ${latitude}\n Longitude ${longitude}`)}
                             />
                         </View>
 
