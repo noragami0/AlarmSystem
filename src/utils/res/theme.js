@@ -10,5 +10,5 @@ export const ColorR = {
     YELLOW: '#FFC353',
     LIGHT_RED: '#FF4732',
     DARK_GRAY: '#8E9BA5',
-    BUTTON_BG: '#F2F6F9',
+    LOCATION_BG: '#F2F6F9',
 };

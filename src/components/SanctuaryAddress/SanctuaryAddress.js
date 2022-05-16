@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     leftBlock: {
-        backgroundColor: ColorR.BUTTON_BG,
+        backgroundColor: ColorR.LOCATION_BG,
         width: 55,
         height: 47,
         borderRadius: 12,
