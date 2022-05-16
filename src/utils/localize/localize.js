@@ -25,4 +25,10 @@ export const localize = {
         title: 'Активні повітряні тривоги',
         subTitle: 'Дані станом на:',
     },
+    infoScreen: {
+        share: 'Поділитись застосунком',
+        questions: 'Поширені питання (FAQ)',
+        moreInfo: 'Додаткова інформація',
+        techSupport: 'Технічна підтримка',
+    },
 };

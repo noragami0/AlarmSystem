@@ -9,6 +9,7 @@ import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/Compone
 import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
 import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
+import InfoScreen from '../screens/User/InfoScreen/InfoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,15 @@ const screens = [
         name: RouteNames.COMPONENT_PALETTE,
         component: ComponentPaletteScreen,
         options: {title: 'Component Palette'},
+    },
+    {
+        name: RouteNames.INFO,
+        component: InfoScreen,
+        options: {
+            title: 'Info',
+            animation: 'none',
+            headerShown: false,
+        },
     },
     {
         name: RouteNames.SETTINGS,
@@ -85,7 +95,7 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.SETTINGS);
                 break;
             case NAV_ICONS_TAGS.INFO:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.INFO);
                 break;
             default:
                 break;

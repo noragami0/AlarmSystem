@@ -10,5 +10,4 @@ export const ColorR = {
     YELLOW: '#FFC353',
     LIGHT_RED: '#FF4732',
     DARK_GRAY: '#8E9BA5',
-
 };
