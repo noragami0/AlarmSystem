@@ -5,7 +5,7 @@ export const RouteNames = {
     HOME: 'HOME',
     LIST: 'LIST',
     SETTINGS: 'SETTINGS',
-
+    SANCTUARY: 'SANCTUARY',
 };
 
 export const navigationRef = createNavigationContainerRef();

@@ -25,4 +25,7 @@ export const localize = {
         title: 'Активні повітряні тривоги',
         subTitle: 'Дані станом на:',
     },
+    SanctuaryScreen: {
+        title: 'Найближчі укриття',
+    },
 };

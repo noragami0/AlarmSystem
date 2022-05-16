@@ -9,6 +9,7 @@ import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/Compone
 import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
 import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
+import SanctuaryScreen from '../screens/User/SanctuaryScreen/SanctuaryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,15 @@ const screens = [
         component: AttentionListScreen,
         options: {
             title: 'AttentionList',
+            animation: 'none',
+            headerShown: false,
+        },
+    },
+    {
+        name: RouteNames.SANCTUARY,
+        component: SanctuaryScreen,
+        options: {
+            title: 'SanctuaryScreen',
             animation: 'none',
             headerShown: false,
         },
@@ -79,7 +89,7 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.LIST);
                 break;
             case NAV_ICONS_TAGS.LOCATION:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.SANCTUARY);
                 break;
             case NAV_ICONS_TAGS.SETTINGS:
                 NavigationUtils.navigate(RouteNames.SETTINGS);
