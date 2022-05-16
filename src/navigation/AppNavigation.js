@@ -10,6 +10,7 @@ import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
 import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
 import InfoScreen from '../screens/User/InfoScreen/InfoScreen';
+import MainSettingsScreen from '../screens/User/MainSettingsScreen/MainSettingsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,9 +40,17 @@ const screens = [
     },
     {
         name: RouteNames.SETTINGS,
+        component: MainSettingsScreen,
+        options: {
+            title: 'MainSettingsScreen',
+            headerShown: false,
+        },
+    },
+    {
+        name: RouteNames.ADD_SETTINGS,
         component: AdditionalSettingsScreen,
         options: {
-            title: 'SettingsScreen',
+            title: 'AdditionalSettingsScreen',
             headerShown: false,
         },
     },
