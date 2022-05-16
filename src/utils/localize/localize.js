@@ -30,4 +30,10 @@ export const localize = {
         sanctuary: 'Сховище',
         address: 'просп. Маршала Жукова, 2',
     },
+    infoScreen: {
+        share: 'Поділитись застосунком',
+        questions: 'Поширені питання (FAQ)',
+        moreInfo: 'Додаткова інформація',
+        techSupport: 'Технічна підтримка',
+    },
 };
