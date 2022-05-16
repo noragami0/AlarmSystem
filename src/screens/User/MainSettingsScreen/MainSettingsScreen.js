@@ -15,24 +15,24 @@ function MainSettingsScreen() {
     return (
         <View style={styles.wrapper}>
             <Text style={styles.settingsTitle}>
-                {localize.MainSettingsScreen.settings}
+                {localize.mainSettingsScreen.settings}
             </Text>
             <View style={styles.settingsButton}>
                 <AppSlider
-                    text={localize.MainSettingsScreen.volume}
+                    text={localize.mainSettingsScreen.volume}
                     onChange={() => null}
                 />
             </View>
             <View style={styles.settingsButton}>
                 <ToggleButton
-                    text={localize.MainSettingsScreen.vibrationSignal}
+                    text={localize.mainSettingsScreen.vibrationSignal}
                     isEnabled={isEnabledToggleButton}
                     onChange={onChangeToggleButton}
                 />
             </View>
             <View style={styles.settingsButton}>
                 <ButtonWithArrow
-                    text={localize.MainSettingsScreen.adjustSound}
+                    text={localize.mainSettingsScreen.adjustSound}
                     onClick={() => NavigationUtils.navigate(RouteNames.ADD_SETTINGS)}
                 />
             </View>

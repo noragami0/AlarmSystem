@@ -31,7 +31,7 @@ export const localize = {
         moreInfo: 'Додаткова інформація',
         techSupport: 'Технічна підтримка',
     },
-    MainSettingsScreen: {
+    mainSettingsScreen: {
         settings: 'Налаштування',
         volume: 'Гучність',
         vibrationSignal: 'Вібросигнал',
