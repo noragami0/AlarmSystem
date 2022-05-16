@@ -4,7 +4,6 @@ export const localize = {
         hourAbbr: 'год.',
         minutesAbbr: 'хв.',
         metersAbbr: 'м',
-        sanctuary: 'Сховище',
     },
     homeScreen: {
         region: 'обрати свій регіон',
@@ -24,6 +23,11 @@ export const localize = {
     listScreen: {
         title: 'Активні повітряні тривоги',
         subTitle: 'Дані станом на:',
+    },
+    sanctuaryScreen: {
+        title: 'Найближчі укриття',
+        goToMap: 'Переглянути на карті',
+        sanctuary: 'Сховище',
     },
     infoScreen: {
         share: 'Поділитись застосунком',

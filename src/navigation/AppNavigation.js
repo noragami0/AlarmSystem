@@ -9,6 +9,7 @@ import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/Compone
 import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
 import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
+import SanctuaryScreen from '../screens/User/SanctuaryScreen/SanctuaryScreen';
 import InfoScreen from '../screens/User/InfoScreen/InfoScreen';
 import MainSettingsScreen from '../screens/User/MainSettingsScreen/MainSettingsScreen';
 
@@ -63,6 +64,15 @@ const screens = [
             headerShown: false,
         },
     },
+    {
+        name: RouteNames.SANCTUARY,
+        component: SanctuaryScreen,
+        options: {
+            title: 'SanctuaryScreen',
+            animation: 'none',
+            headerShown: false,
+        },
+    },
 ];
 const NAV_ICONS_TAGS = {
     LOCATION: 'LOCATION',
@@ -98,7 +108,7 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.LIST);
                 break;
             case NAV_ICONS_TAGS.LOCATION:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.SANCTUARY);
                 break;
             case NAV_ICONS_TAGS.SETTINGS:
                 NavigationUtils.navigate(RouteNames.SETTINGS);
