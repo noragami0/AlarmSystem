@@ -28,5 +28,4 @@ function AttentionIcon({dangerLevel, isSmall}) {
         </View>
     );
 }
-
 export default AttentionIcon;

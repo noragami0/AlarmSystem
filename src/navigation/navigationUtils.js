@@ -5,6 +5,9 @@ export const RouteNames = {
     HOME: 'HOME',
     PROFILE: 'PROFILE',
     INFO: 'INFO',
+    LIST: 'LIST',
+    SETTINGS: 'SETTINGS',
+
 };
 
 export const navigationRef = createNavigationContainerRef();

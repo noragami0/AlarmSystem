@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/User/HomeScreen/HomeScreen';
-import ProfileScreen from '../screens/User/ProfileScreen/ProfileScreen';
+import AttentionListScreen from '../screens/User/AttentionListScreen/AttentionListScreen';
 import {RouteNames, navigationRef, NavigationUtils} from './navigationUtils';
 import {DEFAULT_SCREEN} from '../utils/constants';
 import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/ComponentPaletteScreen';
 import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
+import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
 import InfoScreen from '../screens/User/InfoScreen/InfoScreen';
 
 const Stack = createNativeStackNavigator();
@@ -19,12 +20,8 @@ const screens = [
         options: {
             title: 'Home',
             animation: 'none',
+            headerShown: false,
         },
-    },
-    {
-        name: RouteNames.PROFILE,
-        component: ProfileScreen,
-        options: {title: 'Profile'},
     },
     {
         name: RouteNames.COMPONENT_PALETTE,
@@ -36,6 +33,23 @@ const screens = [
         component: InfoScreen,
         options: {
             title: 'Info',
+            animation: 'none',
+            headerShown: false,
+        },
+    },
+    {
+        name: RouteNames.SETTINGS,
+        component: AdditionalSettingsScreen,
+        options: {
+            title: 'SettingsScreen',
+            headerShown: false,
+        },
+    },
+    {
+        name: RouteNames.LIST,
+        component: AttentionListScreen,
+        options: {
+            title: 'AttentionList',
             animation: 'none',
             headerShown: false,
         },
@@ -72,13 +86,13 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.HOME);
                 break;
             case NAV_ICONS_TAGS.LIST:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.LIST);
                 break;
             case NAV_ICONS_TAGS.LOCATION:
                 NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
                 break;
             case NAV_ICONS_TAGS.SETTINGS:
-                NavigationUtils.navigate(RouteNames.COMPONENT_PALETTE);
+                NavigationUtils.navigate(RouteNames.SETTINGS);
                 break;
             case NAV_ICONS_TAGS.INFO:
                 NavigationUtils.navigate(RouteNames.INFO);
