@@ -33,7 +33,7 @@ const DATA = [
         dateTo: new Date(),
     },
     {
-        dangerLevel: DANGER_LEVEL.HIGH,
+        dangerLevel: DANGER_LEVEL.MEDIUM,
         title: MockData.TITLE,
         date: new Date(),
         dateFrom: moment(new Date()).subtract(1, 'day'),
