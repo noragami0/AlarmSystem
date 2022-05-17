@@ -7,13 +7,14 @@ import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import AppSlider from '../../../components/AppSlider/AppSlider';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
+import AppView from '../../../components/AppView/AppView';
 
 function MainSettingsScreen() {
     const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
     const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
 
     return (
-        <View style={styles.wrapper}>
+        <AppView style={styles.wrapper}>
             <Text style={styles.settingsTitle}>
                 {localize.mainSettingsScreen.settings}
             </Text>
@@ -36,7 +37,7 @@ function MainSettingsScreen() {
                     onClick={() => NavigationUtils.navigate(RouteNames.ADD_SETTINGS)}
                 />
             </View>
-        </View>
+        </AppView>
     );
 }
 

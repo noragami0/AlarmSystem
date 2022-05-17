@@ -7,6 +7,7 @@ import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import SanctuaryAddress from '../../../components/SanctuaryAddress/SanctuaryAddress';
+import AppView from '../../../components/AppView/AppView';
 
 const DATA = [
     {
@@ -36,14 +37,14 @@ function SanctuaryScreen() {
         </View>
     );
     return (
-        <View style={styles.wrapper}>
+        <AppView style={styles.wrapper}>
             <Text style={styles.title}>{localize.sanctuaryScreen.title}</Text>
 
             <FlatList data={DATA} renderItem={renderItem} />
             <View style={styles.arrowButton}>
                 <ButtonWithArrow text={localize.sanctuaryScreen.goToMap} onClick={() => null} />
             </View>
-        </View>
+        </AppView>
     );
 }
 

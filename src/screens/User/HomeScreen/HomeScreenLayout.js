@@ -3,6 +3,7 @@ import {View, StyleSheet, Dimensions} from 'react-native';
 import {ColorR} from '../../../utils/res/theme';
 import AirDot from '../../../components/AirDot/AirDot';
 import {DANGER_LEVEL} from '../../../utils/constants';
+import AppView from '../../../components/AppView/AppView';
 
 const DOT_RADIUS = 150;
 const NAVIGATION_BAR_HEIGHT = 35;
@@ -53,10 +54,10 @@ export default function HomeScreenLayout({children, dangerLevel}) {
     };
 
     return (
-        <View style={styles.container}>
+        <AppView style={styles.container}>
             {renderDots(getDots())}
             {children}
-        </View>
+        </AppView>
     );
 }
 const styles = StyleSheet.create({

@@ -10,6 +10,7 @@ import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
 import {ExampleHttp} from '../../../utils/http/exampleHttp';
+import AppView from '../../../components/AppView/AppView';
 
 const DATA = [
     {
@@ -83,7 +84,7 @@ function AttentionListScreen() {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <AppView style={styles.container}>
             <Text style={styles.title}>{localize.listScreen.title}</Text>
             <View style={styles.subTitleView}>
                 <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
@@ -92,7 +93,7 @@ function AttentionListScreen() {
             <FlatList data={DATA} renderItem={renderItem} />
 
             <Text>{isLoading ? 'Loading...' : JSON.stringify(alertLocations)}</Text>
-        </View>
+        </AppView>
     );
 }
 const styles = StyleSheet.create({

@@ -7,10 +7,11 @@ import {ColorR} from '../../../utils/res/theme';
 import {MockData} from '../../../utils/mockData';
 import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
+import AppView from '../../../components/AppView/AppView';
 
 function InfoScreen() {
     return (
-        <View style={styles.wrapper}>
+        <AppView style={styles.wrapper}>
             <Text style={styles.infoTitle}>
                 {localize.infoScreen.moreInfo}
             </Text>
@@ -31,7 +32,7 @@ function InfoScreen() {
                     <ButtonWithArrow text={localize.infoScreen.questions} onClick={() => null} />
                 </View>
             </View>
-        </View>
+        </AppView>
     );
 }
 

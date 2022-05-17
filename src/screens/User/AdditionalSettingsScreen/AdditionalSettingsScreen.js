@@ -7,10 +7,11 @@ import {MockData} from '../../../utils/mockData';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
+import AppView from '../../../components/AppView/AppView';
 
 export default function AdditionalSettingsScreen() {
     return (
-        <View style={styles.wrapper}>
+        <AppView style={styles.wrapper}>
 
             <Text style={styles.settingsTitle}>{localize.settingsScreen.volumeSettings}</Text>
             <View style={styles.buttonGroup}>
@@ -42,7 +43,7 @@ export default function AdditionalSettingsScreen() {
                 </View>
 
             </View>
-        </View>
+        </AppView>
     );
 }
 

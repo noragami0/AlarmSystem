@@ -45,6 +45,7 @@ const screens = [
         options: {
             title: 'MainSettingsScreen',
             headerShown: false,
+            animation: 'none',
         },
     },
     {
