@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     View, FlatList, StyleSheet, Text,
 } from 'react-native';
@@ -9,6 +9,7 @@ import {MockData} from '../../../utils/mockData';
 import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
+import {ExampleHttp} from '../../../utils/http/exampleHttp';
 
 const DATA = [
     {
@@ -49,6 +50,9 @@ const DATA = [
 ];
 
 function AttentionListScreen() {
+    const [alertLocations, setAlertLocations] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     const renderItem = ({item}) => (
         <View style={styles.attention}>
             <CurrentAttention
@@ -60,6 +64,24 @@ function AttentionListScreen() {
             />
         </View>
     );
+
+    const loadExamples = async () => {
+        setIsLoading(true);
+        try {
+            const response = await ExampleHttp.loadExample();
+
+            setAlertLocations(response.alertLocations);
+            setIsLoading(false);
+        } catch (e) {
+            console.log('ERROR', e);
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        loadExamples();
+    }, []);
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{localize.listScreen.title}</Text>
@@ -68,6 +90,8 @@ function AttentionListScreen() {
                 <Text style={styles.subTitleTime}>{moment.utc().format('DD MMMM, HH:mm')}</Text>
             </View>
             <FlatList data={DATA} renderItem={renderItem} />
+
+            <Text>{isLoading ? 'Loading...' : JSON.stringify(alertLocations)}</Text>
         </View>
     );
 }
