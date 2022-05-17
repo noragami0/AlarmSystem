@@ -19,11 +19,13 @@ function HomeScreen() {
 
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
-    Geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-    });
 
+    const getGeolocation = () => {
+        Geolocation.getCurrentPosition((position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+        });
+    };
     return (
         <HomeScreenLayout dangerLevel={dangerLevel}>
             <View style={styles.wrapper}>
@@ -41,7 +43,10 @@ function HomeScreen() {
                         <View style={styles.geoButton}>
                             <AppButton
                                 text={localize.homeScreen.geolocation}
-                                onClick={() => Alert.alert(`Latitude ${latitude}\n Longitude ${longitude}`)}
+                                onClick={() => {
+                                    getGeolocation();
+                                    Alert.alert(`Latitude ${latitude}\nLongitude ${longitude}`);
+                                }}
                             />
                         </View>
 
