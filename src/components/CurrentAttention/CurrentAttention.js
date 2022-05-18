@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
 import AttentionIcon from '../AttentionIcon/AttentionIcon';
 import {ImageStyles} from '../../utils/res/stylesForImages';
 import {ColorR} from '../../utils/res/theme';

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
 
 function DateTime() {
     const [currentDate, setCurrentDate] = useState(new Date());

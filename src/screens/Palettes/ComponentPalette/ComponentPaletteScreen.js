@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {
     ScrollView,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
 import ComponentPaletteItem from './ComponentPaletteItem';
 import DateTime from '../../../components/DateTime/DateTime';
 import Icon from '../../../components/Icon/Icon';
