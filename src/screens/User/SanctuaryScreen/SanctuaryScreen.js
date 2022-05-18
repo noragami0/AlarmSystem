@@ -56,7 +56,6 @@ function SanctuaryScreen() {
                     />
                 )}
             />
-            <Text>{isLoading ? 'Loading...' : JSON.stringify(sanctuaryLocations)}</Text>
             <View style={styles.arrowButton}>
                 <ButtonWithArrow text={localize.sanctuaryScreen.goToMap} onClick={() => null} />
             </View>
