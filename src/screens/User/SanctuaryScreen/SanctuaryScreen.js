@@ -28,12 +28,7 @@ function SanctuaryScreen() {
         setIsLoading(true);
         try {
             const response = await SanctuaryLocationHttp.loadSanctuaryLocation();
-
-            setSanctuaryLocations(response.sanctuaryLocations);
-            console.log(response);
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 2000);
+            setSanctuaryLocations(response.sanctuaries);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);
