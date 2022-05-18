@@ -14,14 +14,6 @@ function AttentionListScreen() {
     const [alertLocations, setAlertLocations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const onRefresh = () => {
-        setIsLoading(true);
-
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-    };
-
     const renderItem = ({item}) => (
         <View style={styles.attention}>
             <CurrentAttention
@@ -40,7 +32,10 @@ function AttentionListScreen() {
             const response = await AlertLocationHttp.loadAlertLocation();
 
             setAlertLocations(response.alertLocations);
-            setIsLoading(false);
+
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 2000);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);
@@ -64,12 +59,10 @@ function AttentionListScreen() {
                 refreshControl={(
                     <RefreshControl
                         refreshing={isLoading}
-                        onRefresh={() => onRefresh()}
+                        onRefresh={() => loadLocation()}
                     />
                 )}
             />
-
-            <Text>{isLoading ? 'Loading...' : JSON.stringify(alertLocations)}</Text>
         </AppView>
     );
 }
