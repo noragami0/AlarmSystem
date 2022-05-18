@@ -1,54 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {
-    View, FlatList, StyleSheet, Text,
+    View, FlatList, StyleSheet, Text, RefreshControl,
 } from 'react-native';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
-import {DANGER_LEVEL} from '../../../utils/constants';
-import {MockData} from '../../../utils/mockData';
 import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
-import {ExampleHttp} from '../../../utils/http/exampleHttp';
+import {AlertLocationHttp} from '../../../utils/http/alertLocationHttp';
 import AppView from '../../../components/AppView/AppView';
-
-const DATA = [
-    {
-        dangerLevel: DANGER_LEVEL.HIGH,
-        title: MockData.TITLE,
-        date: new Date(),
-        dateFrom: moment(new Date()).subtract(2, 'day').subtract(153, 'minutes'),
-        dateTo: new Date(),
-    },
-    {
-        dangerLevel: DANGER_LEVEL.MEDIUM,
-        title: MockData.TITLE,
-        date: new Date(),
-        dateFrom: moment(new Date()).subtract(1, 'day'),
-        dateTo: new Date(),
-    },
-    {
-        dangerLevel: DANGER_LEVEL.HIGH,
-        title: MockData.TITLE,
-        date: new Date(),
-        dateFrom: moment(new Date()).subtract(1, 'day'),
-        dateTo: new Date(),
-    },
-    {
-        dangerLevel: DANGER_LEVEL.MEDIUM,
-        title: MockData.TITLE,
-        date: new Date(),
-        dateFrom: moment(new Date()).subtract(1, 'day'),
-        dateTo: new Date(),
-    },
-    {
-        dangerLevel: DANGER_LEVEL.HIGH,
-        title: MockData.TITLE,
-        date: new Date(),
-        dateFrom: new Date(),
-        dateTo: new Date(),
-    },
-];
 
 function AttentionListScreen() {
     const [alertLocations, setAlertLocations] = useState([]);
@@ -57,22 +17,25 @@ function AttentionListScreen() {
     const renderItem = ({item}) => (
         <View style={styles.attention}>
             <CurrentAttention
-                date={item.date}
+                date={moment(item.date)}
                 dangerLevel={item.dangerLevel}
-                dateTo={item.dateTo}
-                dateFrom={item.dateFrom}
+                dateTo={moment(item.dateTo)}
+                dateFrom={moment(item.dateFrom)}
                 title={item.title}
             />
         </View>
     );
 
-    const loadExamples = async () => {
+    const loadLocation = async () => {
         setIsLoading(true);
         try {
-            const response = await ExampleHttp.loadExample();
+            const response = await AlertLocationHttp.loadAlertLocation();
 
             setAlertLocations(response.alertLocations);
-            setIsLoading(false);
+
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 2000);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);
@@ -80,7 +43,7 @@ function AttentionListScreen() {
     };
 
     useEffect(() => {
-        loadExamples();
+        loadLocation();
     }, []);
 
     return (
@@ -90,9 +53,16 @@ function AttentionListScreen() {
                 <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
                 <Text style={styles.subTitleTime}>{moment.utc().format('DD MMMM, HH:mm')}</Text>
             </View>
-            <FlatList data={DATA} renderItem={renderItem} />
-
-            <Text>{isLoading ? 'Loading...' : JSON.stringify(alertLocations)}</Text>
+            <FlatList
+                data={alertLocations}
+                renderItem={renderItem}
+                refreshControl={(
+                    <RefreshControl
+                        refreshing={isLoading}
+                        onRefresh={() => loadLocation()}
+                    />
+                )}
+            />
         </AppView>
     );
 }
