@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
-    View, FlatList, StyleSheet, Text,
+    View, FlatList, StyleSheet, Text, RefreshControl,
 } from 'react-native';
 import moment from 'moment/min/moment-with-locales';
 import CurrentAttention from '../../../components/CurrentAttention/CurrentAttention';
@@ -13,6 +13,14 @@ import AppView from '../../../components/AppView/AppView';
 function AttentionListScreen() {
     const [alertLocations, setAlertLocations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const onRefresh = () => {
+        setIsLoading(true);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    };
 
     const renderItem = ({item}) => (
         <View style={styles.attention}>
@@ -50,7 +58,16 @@ function AttentionListScreen() {
                 <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
                 <Text style={styles.subTitleTime}>{moment.utc().format('DD MMMM, HH:mm')}</Text>
             </View>
-            <FlatList data={alertLocations} renderItem={renderItem} />
+            <FlatList
+                data={alertLocations}
+                renderItem={renderItem}
+                refreshControl={(
+                    <RefreshControl
+                        refreshing={isLoading}
+                        onRefresh={() => onRefresh()}
+                    />
+                )}
+            />
 
             <Text>{isLoading ? 'Loading...' : JSON.stringify(alertLocations)}</Text>
         </AppView>
