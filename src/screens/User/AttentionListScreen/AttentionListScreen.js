@@ -51,7 +51,7 @@ function AttentionListScreen() {
             <Text style={styles.title}>{localize.listScreen.title}</Text>
             <View style={styles.subTitleView}>
                 <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
-                <Text style={styles.subTitleTime}>{moment.utc().format('DD MMMM, HH:mm')}</Text>
+                <Text style={styles.subTitleTime}>{moment(new Date()).format('DD MMMM, HH:mm')}</Text>
             </View>
             <FlatList
                 data={alertLocations}
