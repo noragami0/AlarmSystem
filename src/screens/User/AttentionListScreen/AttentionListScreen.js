@@ -30,12 +30,8 @@ function AttentionListScreen() {
         setIsLoading(true);
         try {
             const response = await AlertLocationHttp.loadAlertLocation();
-
             setAlertLocations(response.alertLocations);
-
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 2000);
+            setIsLoading(false);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);
