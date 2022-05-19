@@ -31,6 +31,7 @@ function AttentionListScreen() {
         try {
             const response = await AlertLocationHttp.loadAlertLocation();
             setAlertLocations(response.alertLocations);
+            setIsLoading(false);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);

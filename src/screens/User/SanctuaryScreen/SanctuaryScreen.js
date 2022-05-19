@@ -29,6 +29,7 @@ function SanctuaryScreen() {
         try {
             const response = await SanctuaryLocationHttp.loadSanctuaryLocation();
             setSanctuaryLocations(response.sanctuaries);
+            setIsLoading(false);
         } catch (e) {
             console.log('ERROR', e);
             setIsLoading(false);
