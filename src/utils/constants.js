@@ -5,4 +5,4 @@ export const DANGER_LEVEL = {
     MEDIUM: 'MEDIUM',
     NO_DANGER: 'NO_DANGER',
 };
-export const DEFAULT_SCREEN = RouteNames.COMPONENT_PALETTE;
+export const DEFAULT_SCREEN = RouteNames.HOME;
