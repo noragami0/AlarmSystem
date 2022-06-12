@@ -12,9 +12,9 @@ const MILLISECONDS_IN_HOUR = 60 * 60 * 1000;
 const MILLISECONDS_IN_MINUTE = 60 * 1000;
 
 function CurrentAttention({
-    dangerLevel, title, date, dateFrom, dateTo,
+    dangerLevel, title, date, dateFrom,
 }) {
-    const duration = moment(dateTo).diff(dateFrom);
+    const duration = moment(date).diff(dateFrom);
 
     const getDuration = () => {
         const days = Math.floor(duration / MILLISECONDS_IN_DAY);
@@ -44,7 +44,7 @@ function CurrentAttention({
 
                 <View style={styles.dateElements}>
                     <Text style={styles.date}>
-                        {moment(date).format('DD MMMM, HH:mm')}
+                        {moment(dateFrom).format('DD MMMM, HH:mm')}
                     </Text>
 
                     <Text style={styles.duration}>

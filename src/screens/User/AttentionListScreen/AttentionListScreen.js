@@ -19,7 +19,6 @@ function AttentionListScreen() {
             <CurrentAttention
                 date={moment(item.date)}
                 dangerLevel={item.dangerLevel}
-                dateTo={moment(item.dateTo)}
                 dateFrom={moment(item.dateFrom)}
                 title={item.title}
             />
