@@ -9,11 +9,10 @@ import {UserHttp} from './utils/http/userHttp';
 function App() {
     useEffect(() => {
         const manageTokens = async () => {
-            const stToken = await Storage.get(STORAGE_KEYS.FCM_TOKEN);
-            if (stToken !== null) return;
+            const region = await AlertLocationHttp.getUserRegion(45.247056, 34.203245);
+            console.log(region);
             // const token = await Firebase.getToken();
-            console.log(await Storage.get(STORAGE_KEYS.REFRESH_TOKEN));
-            const token = 'temperorayFcmTOKEN11rrrrrr1239081231234`123`123`123';
+            const token = 'temperorayFcmTOKEN11rrrrrr1239081231234`1klaKSDJFLAKSJDFLKAJSDFladfalksdjflkasjdfasdf23`123`123';
             const response = await UserHttp.login(token);
             console.log(response);
             const {accessToken, refreshToken} = response.tokens;
