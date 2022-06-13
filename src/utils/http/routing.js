@@ -10,6 +10,6 @@ export const HTTP_ROUTING = {
     client: {
         login: `${environments.apiBase}/login`,
         refresh: `${environments.apiBase}/refresh`,
-        updateRegion: `${environments.apiBase}/updateRegion`
-    }
+        updateRegion: `${environments.apiBase}/updateRegion`,
+    },
 };
