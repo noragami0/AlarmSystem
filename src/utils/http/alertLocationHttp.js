@@ -23,13 +23,13 @@ export class AlertLocationHttp {
         }
     }
 
-    static async getUserRegion(latitude, logtitude) {
+    static async getUserRegion(latitude, longitude) {
         const response = await axios.get('https://alarmmap.online/assets/json/_geo/regiony.json');
         let region;
         response.data.forEach((el) => {
             el.geometry.coordinates.forEach((item) => {
                 item.forEach((polygon) => {
-                    if (pointInPolygon([logtitude, latitude], polygon)) {
+                    if (pointInPolygon([longitude, latitude], polygon)) {
                         region = el;
                     }
                 });

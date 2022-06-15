@@ -7,43 +7,43 @@ import {MockData} from '../../../utils/mockData';
 import ButtonWithArrow from '../../../components/ButtonWithArrow/ButtonWithArrow';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
-import AppView from '../../../components/AppView/AppView';
+import ScreensLayout from '../ScreensLayout/ScreensLayout';
 
 export default function AdditionalSettingsScreen() {
     return (
-        <AppView style={styles.wrapper}>
-
-            <Text style={styles.settingsTitle}>{localize.settingsScreen.volumeSettings}</Text>
-            <View style={styles.buttonGroup}>
-                <ButtonGroup
-                    buttons={[{text: localize.settingsScreen.selectStartAlarm, tag: 'BUTTON1'},
-                        {text: localize.settingsScreen.selectEndAlarm, tag: 'BUTTON2'}]}
-                    onClick={() => null}
-                />
-            </View>
-
-            <View style={styles.sound}>
-                <Text style={styles.startEndAlarm}>{localize.settingsScreen.startAlarm}</Text>
-                <ItalicLabel text={MockData.AUDIO} />
-                <View style={styles.buttonWithArrow}>
-                    <ButtonWithArrow
-                        text={localize.settingsScreen.download}
+        <ScreensLayout>
+            <View style={styles.wrapper}>
+                <Text style={styles.settingsTitle}>{localize.settingsScreen.volumeSettings}</Text>
+                <View style={styles.buttonGroup}>
+                    <ButtonGroup
+                        buttons={[{text: localize.settingsScreen.selectStartAlarm, tag: 'BUTTON1'},
+                            {text: localize.settingsScreen.selectEndAlarm, tag: 'BUTTON2'}]}
                         onClick={() => null}
                     />
                 </View>
-            </View>
-            <View style={styles.sound}>
-                <Text style={styles.startEndAlarm}>{localize.settingsScreen.endAlarm}</Text>
-                <ItalicLabel text={MockData.AUDIO} />
-                <View style={styles.buttonWithArrow}>
-                    <ButtonWithArrow
-                        text={localize.settingsScreen.download}
-                        onClick={() => null}
-                    />
+                <View style={styles.sound}>
+                    <Text style={styles.startEndAlarm}>{localize.settingsScreen.startAlarm}</Text>
+                    <ItalicLabel text={MockData.AUDIO} />
+                    <View style={styles.buttonWithArrow}>
+                        <ButtonWithArrow
+                            text={localize.settingsScreen.download}
+                            onClick={() => null}
+                        />
+                    </View>
                 </View>
+                <View style={styles.sound}>
+                    <Text style={styles.startEndAlarm}>{localize.settingsScreen.endAlarm}</Text>
+                    <ItalicLabel text={MockData.AUDIO} />
+                    <View style={styles.buttonWithArrow}>
+                        <ButtonWithArrow
+                            text={localize.settingsScreen.download}
+                            onClick={() => null}
+                        />
+                    </View>
 
+                </View>
             </View>
-        </AppView>
+        </ScreensLayout>
     );
 }
 
