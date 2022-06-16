@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {ColorR} from '../../../utils/res/theme';
 import AirDot from '../../../components/AirDot/AirDot';
 import {DANGER_LEVEL} from '../../../utils/constants';
@@ -55,8 +56,14 @@ export default function HomeScreenLayout({children, dangerLevel}) {
 
     return (
         <AppView style={styles.container}>
-            {renderDots(getDots())}
-            {children}
+            <LinearGradient
+                colors={!dangerLevel ? ['#f6f69e', '#b5d8ee', '#dfeaf0'] : [ColorR.PAGE_BG, ColorR.PAGE_BG]}
+                style={styles.backSvg}
+                start={{x: 1.3, y: 0.5}}
+            >
+                {renderDots(getDots())}
+                {children}
+            </LinearGradient>
         </AppView>
     );
 }
@@ -67,5 +74,9 @@ const styles = StyleSheet.create({
     },
     dot: {
         position: 'absolute',
+    },
+    backSvg: {
+        height: '100%',
+        width: '100%',
     },
 });

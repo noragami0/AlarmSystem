@@ -8,7 +8,7 @@ import {localize} from '../../../utils/localize/localize';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
 import {AlertLocationHttp} from '../../../utils/http/alertLocationHttp';
-import AppView from '../../../components/AppView/AppView';
+import ScreensLayout from '../ScreensLayout/ScreensLayout';
 
 function AttentionListScreen() {
     const [alertLocations, setAlertLocations] = useState([]);
@@ -19,7 +19,6 @@ function AttentionListScreen() {
             <CurrentAttention
                 date={moment(item.date)}
                 dangerLevel={item.dangerLevel}
-                dateTo={moment(item.dateTo)}
                 dateFrom={moment(item.dateFrom)}
                 title={item.title}
             />
@@ -43,23 +42,25 @@ function AttentionListScreen() {
     }, []);
 
     return (
-        <AppView style={styles.container}>
-            <Text style={styles.title}>{localize.listScreen.title}</Text>
-            <View style={styles.subTitleView}>
-                <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
-                <Text style={styles.subTitleTime}>{moment(new Date()).format('DD MMMM, HH:mm')}</Text>
+        <ScreensLayout>
+            <View style={styles.container}>
+                <Text style={styles.title}>{localize.listScreen.title}</Text>
+                <View style={styles.subTitleView}>
+                    <Text style={styles.subTitle}>{localize.listScreen.subTitle}</Text>
+                    <Text style={styles.subTitleTime}>{moment(new Date()).format('DD MMMM, HH:mm')}</Text>
+                </View>
+                <FlatList
+                    data={alertLocations}
+                    renderItem={renderItem}
+                    refreshControl={(
+                        <RefreshControl
+                            refreshing={isLoading}
+                            onRefresh={() => loadLocation()}
+                        />
+                    )}
+                />
             </View>
-            <FlatList
-                data={alertLocations}
-                renderItem={renderItem}
-                refreshControl={(
-                    <RefreshControl
-                        refreshing={isLoading}
-                        onRefresh={() => loadLocation()}
-                    />
-                )}
-            />
-        </AppView>
+        </ScreensLayout>
     );
 }
 const styles = StyleSheet.create({

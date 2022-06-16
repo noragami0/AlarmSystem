@@ -9,6 +9,6 @@ export const ColorR = {
     GREEN: '#0FE918',
     YELLOW: '#FFC353',
     LIGHT_RED: '#FF4732',
-    DARK_GRAY: '#8E9BA5',
+    DARK_GRAY: '#4c4c4c',
     LOCATION_BG: '#F2F6F9',
 };

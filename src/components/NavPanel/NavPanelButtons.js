@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     selectedIcon: {
-        transform: [{scale: 1.2}],
+        transform: [{scale: 1.3}],
     },
 });
 

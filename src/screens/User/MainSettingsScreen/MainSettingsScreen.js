@@ -7,37 +7,39 @@ import ToggleButton from '../../../components/ToggleButton/ToggleButton';
 import AppSlider from '../../../components/AppSlider/AppSlider';
 import {AppFont} from '../../../utils/res/fonts';
 import {ColorR} from '../../../utils/res/theme';
-import AppView from '../../../components/AppView/AppView';
+import ScreensLayout from '../ScreensLayout/ScreensLayout';
 
 function MainSettingsScreen() {
     const [isEnabledToggleButton, setIsEnabledToggleButton] = useState(false);
     const onChangeToggleButton = () => setIsEnabledToggleButton((prev) => !prev);
 
     return (
-        <AppView style={styles.wrapper}>
-            <Text style={styles.settingsTitle}>
-                {localize.mainSettingsScreen.settings}
-            </Text>
-            <View style={styles.settingsButton}>
-                <AppSlider
-                    text={localize.mainSettingsScreen.volume}
-                    onChange={() => null}
-                />
+        <ScreensLayout>
+            <View style={styles.wrapper}>
+                <Text style={styles.settingsTitle}>
+                    {localize.mainSettingsScreen.settings}
+                </Text>
+                <View style={styles.settingsButton}>
+                    <AppSlider
+                        text={localize.mainSettingsScreen.volume}
+                        onChange={() => null}
+                    />
+                </View>
+                <View style={styles.settingsButton}>
+                    <ToggleButton
+                        text={localize.mainSettingsScreen.vibrationSignal}
+                        isEnabled={isEnabledToggleButton}
+                        onChange={onChangeToggleButton}
+                    />
+                </View>
+                <View style={styles.settingsButton}>
+                    <ButtonWithArrow
+                        text={localize.mainSettingsScreen.adjustSound}
+                        onClick={() => NavigationUtils.navigate(RouteNames.ADD_SETTINGS)}
+                    />
+                </View>
             </View>
-            <View style={styles.settingsButton}>
-                <ToggleButton
-                    text={localize.mainSettingsScreen.vibrationSignal}
-                    isEnabled={isEnabledToggleButton}
-                    onChange={onChangeToggleButton}
-                />
-            </View>
-            <View style={styles.settingsButton}>
-                <ButtonWithArrow
-                    text={localize.mainSettingsScreen.adjustSound}
-                    onClick={() => NavigationUtils.navigate(RouteNames.ADD_SETTINGS)}
-                />
-            </View>
-        </AppView>
+        </ScreensLayout>
     );
 }
 

@@ -9,7 +9,7 @@ import ComponentPaletteScreen from '../screens/Palettes/ComponentPalette/Compone
 import NavPanelButtons from '../components/NavPanel/NavPanelButtons';
 import {IconsR} from '../utils/res/icons';
 import AdditionalSettingsScreen from '../screens/User/AdditionalSettingsScreen/AdditionalSettingsScreen';
-import SanctuaryScreen from '../screens/User/SanctuaryScreen/SanctuaryScreen';
+// import SanctuaryScreen from '../screens/User/SanctuaryScreen/SanctuaryScreen';
 import InfoScreen from '../screens/User/InfoScreen/InfoScreen';
 import MainSettingsScreen from '../screens/User/MainSettingsScreen/MainSettingsScreen';
 
@@ -65,26 +65,26 @@ const screens = [
             headerShown: false,
         },
     },
-    {
-        name: RouteNames.SANCTUARY,
-        component: SanctuaryScreen,
-        options: {
-            title: 'SanctuaryScreen',
-            animation: 'none',
-            headerShown: false,
-        },
-    },
+    // {
+    //     name: RouteNames.SANCTUARY,
+    //     component: SanctuaryScreen,
+    //     options: {
+    //         title: 'SanctuaryScreen',
+    //         animation: 'none',
+    //         headerShown: false,
+    //     },
+    // },
 ];
 const NAV_ICONS_TAGS = {
-    LOCATION: 'LOCATION',
+    // LOCATION: 'LOCATION',
     LIST: 'LIST',
     HOME: 'HOME',
     SETTINGS: 'SETTINGS',
     INFO: 'INFO',
 };
-const navPanelIcons = [{icon: IconsR.PIN_ICON, tag: NAV_ICONS_TAGS.LOCATION},
-    {icon: IconsR.LIST_ICON, tag: NAV_ICONS_TAGS.LIST},
+const navPanelIcons = [/* {icon: IconsR.PIN_ICON, tag: NAV_ICONS_TAGS.LOCATION}, */
     {icon: IconsR.HOME_ICON, tag: NAV_ICONS_TAGS.HOME},
+    {icon: IconsR.LIST_ICON, tag: NAV_ICONS_TAGS.LIST},
     {icon: IconsR.SETTING_ICON, tag: NAV_ICONS_TAGS.SETTINGS},
     {icon: IconsR.INFO_ICON, tag: NAV_ICONS_TAGS.INFO}];
 
@@ -97,7 +97,7 @@ function AppNavigation() {
             options={screen.options}
         />
     );
-    const [selectedIcon, setSelectedIcon] = useState(undefined);
+    const [selectedIcon, setSelectedIcon] = useState(NAV_ICONS_TAGS.HOME);
 
     const onNavPanelIconClick = (tag) => {
         setSelectedIcon(tag);
