@@ -3,7 +3,6 @@ import SplashScreen from 'react-native-splash-screen';
 import AppNavigation from './navigation/AppNavigation';
 import Storage, {STORAGE_KEYS} from './utils/storage/storage';
 import Firebase from './utils/firebase/firebase';
-import {AlertLocationHttp} from './utils/http/alertLocationHttp';
 import {UserHttp} from './utils/http/userHttp';
 
 function App() {
@@ -23,20 +22,7 @@ function App() {
             await Storage.store(STORAGE_KEYS.ACCESS_TOKEN, accessToken);
         };
 
-        const manageRegion = async () => {
-            const region = await Storage.get(STORAGE_KEYS.REGION);
-            if (region !== null) return;
-            const currRegion = 'Луганська_область';
-            const response = await AlertLocationHttp.updateRegion(currRegion);
-            await Storage.store('region', response.region);
-        };
-
-        const startApp = async () => {
-            await manageTokens();
-            await manageRegion();
-        };
-
-        startApp();
+        manageTokens();
     }, []);
 
     return (

@@ -97,7 +97,7 @@ function AppNavigation() {
             options={screen.options}
         />
     );
-    const [selectedIcon, setSelectedIcon] = useState(undefined);
+    const [selectedIcon, setSelectedIcon] = useState(NAV_ICONS_TAGS.HOME);
 
     const onNavPanelIconClick = (tag) => {
         setSelectedIcon(tag);

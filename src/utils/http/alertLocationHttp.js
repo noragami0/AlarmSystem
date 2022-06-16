@@ -23,18 +23,24 @@ export class AlertLocationHttp {
         }
     }
 
-    static async getUserRegion(latitude, longitude) {
+    static async getUserRegion(latitude, longtitude) {
         const response = await axios.get('https://alarmmap.online/assets/json/_geo/regiony.json');
-        let region;
-        response.data.forEach((el) => {
-            el.geometry.coordinates.forEach((item) => {
-                item.forEach((polygon) => {
-                    if (pointInPolygon([longitude, latitude], polygon)) {
-                        region = el;
-                    }
-                });
-            });
-        });
-        return region;
+
+        return response.data.find(
+            (el) => !!el.geometry.coordinates.find(
+                (item) => item.find(
+                    (polygon) => pointInPolygon([longtitude, latitude], polygon),
+                ),
+            ),
+        );
+    }
+
+    static async getRegionInfoByTrigger(regionTrigger) {
+        const response = await axios.get('https://alarmmap.online/assets/json/_geo/regiony.json');
+        return response.data.find((el) => el.properties.trigger === regionTrigger);
+    }
+
+    static async getRegionAlertStatus(fid) {
+        return axios.post('https://alarmmap.online/api/distinct', {distinct: fid}).then((res) => res.data);
     }
 }

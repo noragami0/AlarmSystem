@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
-    View, StyleSheet, Text, Alert,
+    View, StyleSheet, Text,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import AppButton from '../../../components/AppButton/AppButton';
@@ -12,16 +12,54 @@ import {ColorR} from '../../../utils/res/theme';
 import AppLink from '../../../components/AppLink/AppLink';
 import AirRaidAlert from '../../../components/AirRaidAlert/AirRaidAlert';
 import HomeScreenLayout from './HomeScreenLayout';
+import {AlertLocationHttp} from '../../../utils/http/alertLocationHttp';
+import Storage, {STORAGE_KEYS} from '../../../utils/storage/storage';
 
 function HomeScreen() {
     const [isSettingsShown, setIsSettingShown] = useState(true);
     const [dangerLevel, setDangerLevel] = useState(null);
+    const [regionName, setRegionName] = useState('');
+
+    useEffect(() => {
+        const fetchPosition = async () => {
+            const regionTrigger = await Storage.get(STORAGE_KEYS.REGION);
+
+            if (regionTrigger) {
+                setIsSettingShown(false);
+            }
+
+            const region = await AlertLocationHttp.getRegionInfoByTrigger(regionTrigger);
+            setRegionName(region.properties.name);
+
+            const regionAlertStatus = await AlertLocationHttp
+                .getRegionAlertStatus(region.properties.fid);
+
+            if (regionAlertStatus.air || regionAlertStatus.chemical) {
+                setDangerLevel(DANGER_LEVEL.HIGH);
+            }
+        };
+
+        fetchPosition();
+    }, []);
 
     const getGeolocation = () => {
-        Geolocation.getCurrentPosition((position) => {
-            Alert.alert(`Latitude ${position.coords.latitude}\nLongitude ${position.coords.longitude}`);
+        Geolocation.getCurrentPosition(async (position) => {
+            const location = await AlertLocationHttp
+                .getUserRegion(position.coords.latitude, position.coords.longitude);
+
+            if (!location) {
+                return;
+            }
+
+            const {trigger} = location.properties;
+
+            await Storage.store(STORAGE_KEYS.REGION, trigger);
+            await AlertLocationHttp.updateRegion(trigger);
+
+            setIsSettingShown(false);
         });
     };
+
     return (
         <HomeScreenLayout dangerLevel={dangerLevel}>
             <View style={styles.wrapper}>
@@ -57,11 +95,7 @@ function HomeScreen() {
                             }
                             />
                         </View>
-                        <Text style={styles.location}>
-                            Миколаївська область
-                            {'\n\n'}
-                            м. Вознесенськ та Вознесенська територіальна громадам
-                        </Text>
+                        <Text style={styles.location}>{regionName}</Text>
                         <AppLink text={localize.homeScreen.change} />
                     </>
                 )}
