@@ -3,6 +3,7 @@ import {
     View, StyleSheet, Text,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import ModalSelector from 'react-native-modal-selector';
 import AppButton from '../../../components/AppButton/AppButton';
 import {localize} from '../../../utils/localize/localize';
 import AttentionIcon from '../../../components/AttentionIcon/AttentionIcon';
@@ -19,6 +20,13 @@ function HomeScreen() {
     const [isSettingsShown, setIsSettingShown] = useState(true);
     const [dangerLevel, setDangerLevel] = useState(null);
     const [regionName, setRegionName] = useState('');
+    const [modalRegions, setModalRegions] = useState([]);
+    const [isChooserVisible, setIsChooserVisible] = useState(false);
+
+    useEffect(() => {
+        fetchPosition();
+        fetchRegions();
+    }, []);
 
     const fetchPosition = async () => {
         const regionTrigger = await Storage.get(STORAGE_KEYS.REGION);
@@ -36,15 +44,28 @@ function HomeScreen() {
 
         const regionAlertStatus = await AlertLocationHttp
             .getRegionAlertStatus(region.properties.fid);
-
+        console.log(regionAlertStatus);
         if (regionAlertStatus.air || regionAlertStatus.chemical) {
             setDangerLevel(DANGER_LEVEL.HIGH);
+        } else {
+            setDangerLevel(DANGER_LEVEL.NO_DANGER);
         }
     };
 
-    useEffect(() => {
-        fetchPosition();
-    }, []);
+    const fetchRegions = async () => {
+        const regions = await AlertLocationHttp.getRegionsList();
+        setModalRegions(regions);
+    };
+
+    const onChooseCustomRegion = async (region) => {
+        const {trigger} = region;
+        await Storage.store(STORAGE_KEYS.REGION, trigger);
+        await AlertLocationHttp.updateRegion(trigger);
+
+        setIsSettingShown(false);
+
+        await fetchPosition();
+    };
 
     const getGeolocation = () => {
         Geolocation.getCurrentPosition(async (position) => {
@@ -74,10 +95,7 @@ function HomeScreen() {
                         <View style={styles.regButton}>
                             <AppButton
                                 text={localize.homeScreen.region}
-                                onClick={() => {
-                                    setIsSettingShown(false);
-                                    setDangerLevel(DANGER_LEVEL.HIGH);
-                                }}
+                                onClick={() => setIsChooserVisible(true)}
                             />
                         </View>
                         <View style={styles.geoButton}>
@@ -102,9 +120,25 @@ function HomeScreen() {
                             />
                         </View>
                         <Text style={styles.location}>{regionName}</Text>
-                        <AppLink text={localize.homeScreen.change} />
+
+                        <AppLink
+                            onClick={() => setIsChooserVisible(true)}
+                            text={localize.homeScreen.change}
+                        />
                     </>
                 )}
+
+                <ModalSelector
+                    keyExtractor={(el) => el.trigger}
+                    labelExtractor={(el) => el.name}
+                    data={modalRegions}
+                    visible={isChooserVisible}
+                    onModalClose={() => setIsChooserVisible(false)}
+                    closeOnChange={true}
+                    onChange={onChooseCustomRegion}
+                    accessible={false}
+                    childrenContainerStyle={styles.modalContainer}
+                />
             </View>
         </HomeScreenLayout>
     );
@@ -135,6 +169,9 @@ const styles = StyleSheet.create({
         width: '100%',
         textAlign: 'center',
         marginBottom: 20,
+    },
+    modalContainer: {
+        display: 'none',
     },
 });
 export default HomeScreen;

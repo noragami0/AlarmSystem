@@ -43,4 +43,13 @@ export class AlertLocationHttp {
     static async getRegionAlertStatus(fid) {
         return axios.post('https://alarmmap.online/api/distinct', {distinct: fid}).then((res) => res.data);
     }
+
+    static async getRegionsList() {
+        const response = await axios.get('https://alarmmap.online/assets/json/_geo/regiony.json');
+
+        return response.data.map((el) => ({
+            name: el.properties.name,
+            trigger: el.properties.trigger,
+        }));
+    }
 }
