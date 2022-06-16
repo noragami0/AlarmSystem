@@ -20,25 +20,29 @@ function HomeScreen() {
     const [dangerLevel, setDangerLevel] = useState(null);
     const [regionName, setRegionName] = useState('');
 
+    const fetchPosition = async () => {
+        const regionTrigger = await Storage.get(STORAGE_KEYS.REGION);
+
+        if (!regionTrigger) {
+            return;
+        }
+
+        if (regionTrigger) {
+            setIsSettingShown(false);
+        }
+
+        const region = await AlertLocationHttp.getRegionInfoByTrigger(regionTrigger);
+        setRegionName(region.properties.name);
+
+        const regionAlertStatus = await AlertLocationHttp
+            .getRegionAlertStatus(region.properties.fid);
+
+        if (regionAlertStatus.air || regionAlertStatus.chemical) {
+            setDangerLevel(DANGER_LEVEL.HIGH);
+        }
+    };
+
     useEffect(() => {
-        const fetchPosition = async () => {
-            const regionTrigger = await Storage.get(STORAGE_KEYS.REGION);
-
-            if (regionTrigger) {
-                setIsSettingShown(false);
-            }
-
-            const region = await AlertLocationHttp.getRegionInfoByTrigger(regionTrigger);
-            setRegionName(region.properties.name);
-
-            const regionAlertStatus = await AlertLocationHttp
-                .getRegionAlertStatus(region.properties.fid);
-
-            if (regionAlertStatus.air || regionAlertStatus.chemical) {
-                setDangerLevel(DANGER_LEVEL.HIGH);
-            }
-        };
-
         fetchPosition();
     }, []);
 
@@ -57,6 +61,8 @@ function HomeScreen() {
             await AlertLocationHttp.updateRegion(trigger);
 
             setIsSettingShown(false);
+
+            await fetchPosition();
         });
     };
 
