@@ -10,6 +10,7 @@ function App() {
         SplashScreen.hide();
 
         const manageTokens = async () => {
+            console.log(await Firebase.getToken());
             if (await Storage.get(STORAGE_KEYS.REFRESH_TOKEN)) {
                 return;
             }
