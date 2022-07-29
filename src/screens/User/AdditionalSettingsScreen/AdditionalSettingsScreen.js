@@ -70,14 +70,7 @@ export default function AdditionalSettingsScreen() {
                 </View>
                 <View style={styles.sound}>
                     <Text style={styles.startEndAlarm}>{localize.settingsScreen.endAlarm}</Text>
-                    <ItalicLabel text={MockData.AUDIO} />
-                    <View style={styles.buttonWithArrow}>
-                        <ButtonWithArrow
-                            text={localize.settingsScreen.download}
-                            onClick={() => null}
-                        />
-                    </View>
-
+                    <ItalicLabel text={localize.settingsScreen.selectStartAlarm} />
                 </View>
             </View>
 
