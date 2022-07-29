@@ -54,6 +54,7 @@ const screens = [
         options: {
             title: 'AdditionalSettingsScreen',
             headerShown: false,
+            animation: 'none',
         },
     },
     {
@@ -112,7 +113,7 @@ function AppNavigation() {
                 NavigationUtils.navigate(RouteNames.SANCTUARY);
                 break;
             case NAV_ICONS_TAGS.SETTINGS:
-                NavigationUtils.navigate(RouteNames.SETTINGS);
+                NavigationUtils.navigate(RouteNames.ADD_SETTINGS);
                 break;
             case NAV_ICONS_TAGS.INFO:
                 NavigationUtils.navigate(RouteNames.INFO);
